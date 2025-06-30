@@ -1,0 +1,175 @@
+export function generateMockData() {
+  return {
+    predictions: [
+      {
+        product: "Tata Salt 1kg",
+        zone: "Mumbai Central",
+        predictedDemand: 450,
+        confidence: 0.92,
+        factors: ["weather", "seasonal"],
+      },
+      {
+        product: "Cotton Kurta Set",
+        zone: "Bengaluru Koramangala",
+        predictedDemand: 320,
+        confidence: 0.87,
+        factors: ["festival", "seasonal"],
+      },
+      {
+        product: "Amul Fresh Milk",
+        zone: "Delhi Connaught Place",
+        predictedDemand: 280,
+        confidence: 0.94,
+        factors: ["daily_consumption", "weather"],
+      },
+      {
+        product: "Eco-Friendly Detergent",
+        zone: "Pune Baner",
+        predictedDemand: 190,
+        confidence: 0.89,
+        factors: ["sustainability_trend"],
+      },
+      {
+        product: "Compact Umbrella",
+        zone: "Chennai T.Nagar",
+        predictedDemand: 150,
+        confidence: 0.76,
+        factors: ["monsoon", "weather_forecast"],
+      },
+    ],
+    rebalancing: [
+      {
+        product: "Tata Salt 1kg",
+        from: "Mumbai Warehouse",
+        to: "Bandra Store",
+        quantity: 200,
+        priority: "urgent",
+        eta: "2 hours",
+        reason: "High predicted demand",
+      },
+      {
+        product: "Cotton Kurta Set",
+        from: "Bengaluru Hub",
+        to: "Koramangala Store",
+        quantity: 150,
+        priority: "normal",
+        eta: "4 hours",
+        reason: "Festival season approach",
+      },
+      {
+        product: "Compact Umbrella",
+        from: "Chennai Central",
+        to: "T.Nagar Store",
+        quantity: 100,
+        priority: "urgent",
+        eta: "1 hour",
+        reason: "Monsoon forecast",
+      },
+    ],
+    alerts: [
+      { type: "stock", message: "Low stock: Tata Salt in Mumbai stores", severity: "high" },
+      { type: "demand", message: "Unexpected demand spike: Umbrellas in Chennai", severity: "medium" },
+      { type: "stock", message: "Overstock: Winter items in Bengaluru", severity: "low" },
+    ],
+    demandForecast: [
+      { date: "Mon", predicted: 1200, actual: 1150, confidence: 92 },
+      { date: "Tue", predicted: 1350, actual: 1380, confidence: 89 },
+      { date: "Wed", predicted: 1100, actual: 1050, confidence: 94 },
+      { date: "Thu", predicted: 1450, confidence: 87 },
+      { date: "Fri", predicted: 1600, confidence: 91 },
+      { date: "Sat", predicted: 1800, confidence: 85 },
+      { date: "Sun", predicted: 1300, confidence: 88 },
+    ],
+    inventory: [
+      {
+        location: "Mumbai Bandra Store",
+        zone: "West Mumbai",
+        stockLevel: 8500,
+        capacity: 10000,
+        status: "healthy",
+        topProducts: [
+          { name: "Tata Salt", stock: 450 },
+          { name: "Amul Milk", stock: 320 },
+          { name: "Maggi Noodles", stock: 280 },
+        ],
+      },
+      {
+        location: "Delhi CP Store",
+        zone: "Central Delhi",
+        stockLevel: 3200,
+        capacity: 8000,
+        status: "low",
+        topProducts: [
+          { name: "Winter Jackets", stock: 150 },
+          { name: "Hot Beverages", stock: 120 },
+          { name: "Warm Clothing", stock: 200 },
+        ],
+      },
+      {
+        location: "Bengaluru Koramangala",
+        zone: "South Bengaluru",
+        stockLevel: 1500,
+        capacity: 5000,
+        status: "critical",
+        topProducts: [
+          { name: "Tech Accessories", stock: 80 },
+          { name: "Coffee Beans", stock: 60 },
+          { name: "Organic Products", stock: 45 },
+        ],
+      },
+    ],
+    routes: [
+      {
+        id: "MUM-001",
+        status: "active",
+        progress: 65,
+        eta: "45 min",
+        carbonScore: 1200,
+      },
+      {
+        id: "DEL-002",
+        status: "active",
+        progress: 30,
+        eta: "1.5 hours",
+        carbonScore: 890,
+      },
+      {
+        id: "BLR-003",
+        status: "scheduled",
+        progress: 0,
+        eta: "3 hours",
+        carbonScore: 650,
+      },
+    ],
+    ecoMetrics: {
+      carbonReduction: {
+        thisMonth: 2.4,
+        target: 3.0,
+        breakdown: [
+          { category: "Route Optimization", value: 0.8, color: "#10b981" },
+          { category: "Eco Deliveries", value: 0.6, color: "#3b82f6" },
+          { category: "Sustainable Packaging", value: 0.5, color: "#8b5cf6" },
+          { category: "Local Sourcing", value: 0.5, color: "#f59e0b" },
+        ],
+      },
+      wasteReduction: {
+        recycled: 450,
+        reused: 230,
+        total: 800,
+      },
+      greenDeliveries: {
+        percentage: 68,
+        trend: 12,
+      },
+      energyEfficiency: {
+        score: 87,
+        improvements: [
+          { area: "LED Lighting", saving: 15 },
+          { area: "Solar HVAC", saving: 22 },
+          { area: "Smart Refrigeration", saving: 18 },
+          { area: "Electric Vehicles", saving: 25 },
+        ],
+      },
+    },
+  }
+}
