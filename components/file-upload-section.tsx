@@ -36,6 +36,10 @@ export function FileUploadSection({ dataset }: FileUploadSectionProps) {
   const [previewData, setPreviewData] = useState<any[]>([])
   const [showPreview, setShowPreview] = useState(false)
   const fileInputRef = useRef<HTMLInputElement>(null)
+  const [uploadedFilename, setUploadedFilename] = useState("")
+const [uploadedSchema, setUploadedSchema] = useState<string[]>([])
+const [showSchemaModal, setShowSchemaModal] = useState(false)
+
 
   const handleFileSelect = (event: React.ChangeEvent<HTMLInputElement>) => {
     const selectedFile = event.target.files?.[0]
@@ -112,47 +116,64 @@ export function FileUploadSection({ dataset }: FileUploadSectionProps) {
   }
 
   const handleUpload = async () => {
-    if (!file) return
+  if (!file) return
 
-    setUploading(true)
-    setUploadProgress(0)
+  setUploading(true)
+  setUploadProgress(0)
 
-    try {
-      // Simulate file reading and validation
-      const reader = new FileReader()
-      reader.onload = async (e) => {
-        const csvText = e.target?.result as string
-        const parsed = parseCSV(csvText)
+  try {
+    const reader = new FileReader()
+    reader.onload = async (e) => {
+      const csvText = e.target?.result as string
+      const parsed = parseCSV(csvText)
 
-        // Validate schema
-        const validation = validateSchema(parsed)
-        if (!validation.valid) {
-          setErrorMessage(validation.error)
-          setUploadStatus("error")
-          setUploading(false)
-          return
-        }
-
-        // Simulate upload progress
-        for (let i = 0; i <= 100; i += 10) {
-          setUploadProgress(i)
-          await new Promise((resolve) => setTimeout(resolve, 100))
-        }
-
-        // Simulate API call
-        await new Promise((resolve) => setTimeout(resolve, 1000))
-
-        setUploadStatus("success")
+      const validation = validateSchema(parsed)
+      if (!validation.valid) {
+        setErrorMessage(validation.error)
+        setUploadStatus("error")
         setUploading(false)
-        setUploadProgress(100)
+        return
       }
-      reader.readAsText(file)
-    } catch (error) {
-      setErrorMessage("Upload failed. Please try again.")
-      setUploadStatus("error")
+
+      // Simulate upload progress
+      for (let i = 0; i <= 60; i += 10) {
+        setUploadProgress(i)
+        await new Promise((res) => setTimeout(res, 100))
+      }
+
+      // Prepare FormData
+      const formData = new FormData()
+      formData.append("file", file)
+
+      const res = await fetch(`http://localhost:5000/api/upload/${dataset.id}`, {
+        method: "POST",
+        body: formData,
+      })
+
+      const result = await res.json()
+
+      if (!res.ok) {
+        setErrorMessage(result.error || "Upload failed. Try again.")
+        setUploadStatus("error")
+        setUploading(false)
+        return
+      }
+
+      setUploadedFilename(result.filename)
+      setUploadedSchema(result.columns || [])
+      setShowSchemaModal(true)
+      setUploadStatus("success")
+      setUploadProgress(100)
       setUploading(false)
     }
+
+    reader.readAsText(file)
+  } catch (error) {
+    setErrorMessage("Upload failed. Please try again.")
+    setUploadStatus("error")
+    setUploading(false)
   }
+}
 
   const resetUpload = () => {
     setFile(null)
@@ -287,6 +308,12 @@ export function FileUploadSection({ dataset }: FileUploadSectionProps) {
             <AlertDescription className="text-red-800 dark:text-red-300">{errorMessage}</AlertDescription>
           </Alert>
         )}
+        {uploadStatus === "success" && uploadedFilename && (
+  <p className="text-sm text-green-700 dark:text-green-300">
+    ✅ Uploaded: <strong>{uploadedFilename}</strong>
+  </p>
+)}
+
 
         {/* Data Preview */}
         {showPreview && previewData.length > 0 && (
@@ -323,6 +350,28 @@ export function FileUploadSection({ dataset }: FileUploadSectionProps) {
             </div>
           </div>
         )}
+        {/* Schema Modal */}
+{showSchemaModal && uploadedSchema.length > 0 && (
+  <div className="fixed inset-0 bg-black bg-opacity-30 flex items-center justify-center z-50">
+    <div className="bg-white dark:bg-gray-900 rounded-lg p-6 w-full max-w-md shadow-lg">
+      <div className="flex justify-between items-center mb-4">
+        <h3 className="text-lg font-semibold">📋 Uploaded Schema</h3>
+        <Button variant="ghost" size="sm" onClick={() => setShowSchemaModal(false)}>
+          <X className="h-4 w-4" />
+        </Button>
+      </div>
+      <div className="space-y-2 text-sm">
+        {uploadedSchema.map((col, i) => (
+          <div key={i} className="flex justify-between">
+            <span className="font-mono text-blue-600 dark:text-blue-300">{col}</span>
+            <Badge variant="outline" className="text-gray-600 dark:text-gray-400">column</Badge>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+)}
+
       </CardContent>
     </Card>
   )
