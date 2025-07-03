@@ -22,6 +22,7 @@ import {
   Wifi,
   Bell,
   User,
+  Upload,
 } from "lucide-react"
 
 interface SidebarProps {
@@ -83,6 +84,12 @@ export function WalmartSidebar({ userType }: SidebarProps) {
             badge: null,
           },
           {
+            title: "Data Upload",
+            icon: Upload,
+            href: "/data-upload",
+            badge: "New",
+          },
+          {
             title: "Notifications",
             icon: Bell,
             href: "/notifications",
@@ -114,6 +121,12 @@ export function WalmartSidebar({ userType }: SidebarProps) {
             title: "Local Demand",
             icon: TrendingUp,
             href: "/demand-prediction",
+            badge: null,
+          },
+          {
+            title: "Data Upload",
+            icon: Upload,
+            href: "/data-upload",
             badge: null,
           },
           {
@@ -270,8 +283,7 @@ export function WalmartSidebar({ userType }: SidebarProps) {
         ))}
       </nav>
 
-      {/* Footer */}
-      
+     
     </div>
   )
 }
