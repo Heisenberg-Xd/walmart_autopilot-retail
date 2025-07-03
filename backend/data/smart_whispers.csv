@@ -1,0 +1,501 @@
+id,suggestion_text,triggered_on,status
+W000,Move 45 Notebook A5 from Kolkata to Mumbai.,2025-06-29 09:15 PM,Completed
+W001,Move 43 LED Bulb from Delhi to Mumbai.,2025-06-26 10:08 AM,Pending
+W002,Move 31 Handwash 250ml from Mumbai to Jaipur.,2025-06-27 09:19 AM,Completed
+W003,Move 28 LED Bulb from Surat to Surat.,2025-06-27 03:11 PM,Pending
+W004,Move 42 Kurta Set from Kolkata to Delhi.,2025-06-28 05:16 PM,In Review
+W005,Move 68 Handwash 250ml from Mumbai to Delhi.,2025-06-27 07:32 PM,Completed
+W006,Move 87 Rice 5kg from Delhi to Mumbai.,2025-06-27 08:24 PM,Completed
+W007,Move 82 LED Bulb from Kolkata to Surat.,2025-06-25 03:39 PM,Completed
+W008,Move 89 LED Bulb from Delhi to Jaipur.,2025-06-29 09:34 AM,Pending
+W009,Move 34 Notebook A5 from Kolkata to Kolkata.,2025-06-30 11:53 AM,Completed
+W010,Move 51 LED Bulb from Jaipur to Mumbai.,2025-06-26 09:14 PM,Completed
+W011,Move 60 Kurta Set from Delhi to Kolkata.,2025-06-24 12:44 AM,In Review
+W012,Move 36 LED Bulb from Kolkata to Surat.,2025-06-27 02:33 PM,Completed
+W013,Move 50 Kurta Set from Delhi to Delhi.,2025-06-27 07:25 PM,In Review
+W014,Move 47 LED Bulb from Jaipur to Surat.,2025-06-30 08:22 AM,Completed
+W015,Move 53 Notebook A5 from Kolkata to Kolkata.,2025-06-24 12:57 PM,Completed
+W016,Move 74 LED Bulb from Delhi to Jaipur.,2025-06-29 01:25 PM,Completed
+W017,Move 82 Rice 5kg from Delhi to Jaipur.,2025-06-25 08:34 PM,Completed
+W018,Move 77 LED Bulb from Mumbai to Surat.,2025-06-26 04:48 PM,Pending
+W019,Move 88 Rice 5kg from Jaipur to Surat.,2025-06-25 11:37 PM,In Review
+W020,Move 62 Rice 5kg from Surat to Surat.,2025-06-26 11:20 AM,Pending
+W021,Move 22 LED Bulb from Jaipur to Delhi.,2025-06-30 01:53 PM,Completed
+W022,Move 90 Kurta Set from Jaipur to Surat.,2025-06-27 11:42 PM,Pending
+W023,Move 66 Handwash 250ml from Mumbai to Mumbai.,2025-06-24 11:42 PM,In Review
+W024,Move 70 Rice 5kg from Delhi to Mumbai.,2025-06-29 01:33 AM,Completed
+W025,Move 62 LED Bulb from Mumbai to Surat.,2025-06-24 08:42 PM,In Review
+W026,Move 51 Kurta Set from Jaipur to Jaipur.,2025-06-28 08:55 AM,In Review
+W027,Move 33 Handwash 250ml from Kolkata to Kolkata.,2025-06-26 02:45 AM,Pending
+W028,Move 40 Notebook A5 from Delhi to Jaipur.,2025-06-27 12:27 PM,Pending
+W029,Move 100 Rice 5kg from Jaipur to Delhi.,2025-06-27 05:07 PM,In Review
+W030,Move 35 LED Bulb from Kolkata to Mumbai.,2025-06-30 08:23 AM,In Review
+W031,Move 54 Kurta Set from Jaipur to Jaipur.,2025-06-29 01:57 AM,In Review
+W032,Move 73 Kurta Set from Jaipur to Surat.,2025-06-25 07:42 PM,In Review
+W033,Move 39 Kurta Set from Surat to Kolkata.,2025-06-30 02:16 PM,Pending
+W034,Move 97 Notebook A5 from Delhi to Kolkata.,2025-06-25 02:05 PM,In Review
+W035,Move 22 Notebook A5 from Delhi to Kolkata.,2025-06-24 04:41 AM,Pending
+W036,Move 32 Notebook A5 from Surat to Kolkata.,2025-06-24 08:07 AM,Completed
+W037,Move 57 LED Bulb from Jaipur to Mumbai.,2025-06-24 06:18 PM,Completed
+W038,Move 91 Notebook A5 from Kolkata to Delhi.,2025-06-24 05:18 PM,In Review
+W039,Move 88 Handwash 250ml from Mumbai to Kolkata.,2025-06-28 11:19 PM,Pending
+W040,Move 83 LED Bulb from Delhi to Surat.,2025-06-25 09:22 PM,In Review
+W041,Move 33 LED Bulb from Mumbai to Surat.,2025-06-25 08:13 PM,Pending
+W042,Move 70 Rice 5kg from Kolkata to Delhi.,2025-06-27 12:47 PM,Completed
+W043,Move 92 Kurta Set from Delhi to Delhi.,2025-06-29 09:14 AM,Pending
+W044,Move 100 Kurta Set from Jaipur to Surat.,2025-06-28 10:42 AM,Pending
+W045,Move 46 LED Bulb from Surat to Mumbai.,2025-06-30 06:42 AM,Pending
+W046,Move 38 LED Bulb from Surat to Kolkata.,2025-06-29 10:49 AM,In Review
+W047,Move 92 Rice 5kg from Jaipur to Kolkata.,2025-06-30 07:09 AM,Completed
+W048,Move 72 Notebook A5 from Delhi to Mumbai.,2025-06-25 03:27 PM,Pending
+W049,Move 61 Handwash 250ml from Surat to Kolkata.,2025-06-25 05:47 AM,Pending
+W050,Move 54 Rice 5kg from Surat to Kolkata.,2025-06-25 05:31 AM,In Review
+W051,Move 83 Notebook A5 from Mumbai to Delhi.,2025-06-30 10:12 AM,Completed
+W052,Move 81 Handwash 250ml from Surat to Jaipur.,2025-06-29 03:26 AM,Pending
+W053,Move 74 Kurta Set from Kolkata to Mumbai.,2025-06-26 10:56 PM,Pending
+W054,Move 40 Handwash 250ml from Jaipur to Mumbai.,2025-06-26 07:45 PM,Pending
+W055,Move 76 Kurta Set from Jaipur to Kolkata.,2025-06-24 03:52 PM,Completed
+W056,Move 41 Handwash 250ml from Kolkata to Mumbai.,2025-06-25 12:53 PM,In Review
+W057,Move 90 LED Bulb from Kolkata to Jaipur.,2025-06-26 01:48 AM,Completed
+W058,Move 35 LED Bulb from Delhi to Delhi.,2025-06-23 10:19 PM,In Review
+W059,Move 61 Handwash 250ml from Delhi to Surat.,2025-06-24 09:52 AM,In Review
+W060,Move 41 Rice 5kg from Delhi to Surat.,2025-06-26 07:21 PM,In Review
+W061,Move 46 Handwash 250ml from Delhi to Surat.,2025-06-24 03:11 PM,In Review
+W062,Move 52 LED Bulb from Kolkata to Mumbai.,2025-06-23 06:53 PM,Completed
+W063,Move 37 Rice 5kg from Surat to Kolkata.,2025-06-29 07:31 AM,Pending
+W064,Move 60 LED Bulb from Mumbai to Mumbai.,2025-06-24 10:58 AM,Completed
+W065,Move 28 Kurta Set from Delhi to Mumbai.,2025-06-26 11:30 PM,Pending
+W066,Move 32 Handwash 250ml from Kolkata to Delhi.,2025-06-28 12:35 PM,Pending
+W067,Move 27 Handwash 250ml from Kolkata to Surat.,2025-06-28 10:07 AM,Pending
+W068,Move 28 Notebook A5 from Surat to Mumbai.,2025-06-26 12:17 AM,Completed
+W069,Move 100 Kurta Set from Mumbai to Delhi.,2025-06-26 12:50 PM,Completed
+W070,Move 74 Handwash 250ml from Delhi to Delhi.,2025-06-28 03:58 PM,In Review
+W071,Move 71 Notebook A5 from Surat to Surat.,2025-06-24 01:49 PM,In Review
+W072,Move 45 Kurta Set from Surat to Mumbai.,2025-06-28 02:01 AM,Pending
+W073,Move 47 Notebook A5 from Mumbai to Delhi.,2025-06-25 03:12 PM,In Review
+W074,Move 33 Rice 5kg from Surat to Surat.,2025-06-24 09:05 AM,In Review
+W075,Move 69 Notebook A5 from Surat to Surat.,2025-06-24 09:04 AM,In Review
+W076,Move 55 Handwash 250ml from Kolkata to Mumbai.,2025-06-25 09:59 PM,Pending
+W077,Move 20 Rice 5kg from Mumbai to Jaipur.,2025-06-29 02:14 AM,In Review
+W078,Move 38 Rice 5kg from Mumbai to Kolkata.,2025-06-23 11:00 PM,Pending
+W079,Move 61 Kurta Set from Jaipur to Mumbai.,2025-06-25 06:07 PM,In Review
+W080,Move 76 LED Bulb from Kolkata to Delhi.,2025-06-29 04:00 PM,Completed
+W081,Move 84 Kurta Set from Mumbai to Surat.,2025-06-29 08:27 PM,Completed
+W082,Move 68 LED Bulb from Kolkata to Delhi.,2025-06-27 05:02 PM,Completed
+W083,Move 86 Notebook A5 from Surat to Jaipur.,2025-06-24 09:32 AM,In Review
+W084,Move 47 Rice 5kg from Delhi to Mumbai.,2025-06-26 02:41 AM,Completed
+W085,Move 91 LED Bulb from Kolkata to Delhi.,2025-06-24 12:41 PM,In Review
+W086,Move 35 Handwash 250ml from Kolkata to Delhi.,2025-06-23 08:53 PM,Pending
+W087,Move 23 Notebook A5 from Kolkata to Delhi.,2025-06-27 01:47 AM,In Review
+W088,Move 74 Rice 5kg from Surat to Surat.,2025-06-26 11:31 PM,Pending
+W089,Move 68 Notebook A5 from Mumbai to Jaipur.,2025-06-24 02:06 AM,Pending
+W090,Move 76 Notebook A5 from Surat to Mumbai.,2025-06-28 09:20 PM,Pending
+W091,Move 95 Notebook A5 from Delhi to Jaipur.,2025-06-24 03:06 PM,Completed
+W092,Move 52 Handwash 250ml from Jaipur to Surat.,2025-06-26 09:58 PM,Completed
+W093,Move 24 Notebook A5 from Kolkata to Kolkata.,2025-06-25 08:15 PM,Pending
+W094,Move 52 Notebook A5 from Jaipur to Surat.,2025-06-26 11:52 AM,Pending
+W095,Move 80 Handwash 250ml from Kolkata to Kolkata.,2025-06-30 05:41 AM,Pending
+W096,Move 80 Handwash 250ml from Jaipur to Jaipur.,2025-06-29 03:17 PM,Completed
+W097,Move 23 Handwash 250ml from Mumbai to Mumbai.,2025-06-28 05:13 PM,Pending
+W098,Move 30 LED Bulb from Jaipur to Jaipur.,2025-06-30 01:59 AM,Completed
+W099,Move 27 Notebook A5 from Jaipur to Surat.,2025-06-28 09:45 PM,Completed
+W100,Move 44 Handwash 250ml from Jaipur to Delhi.,2025-06-28 01:39 AM,In Review
+W101,Move 60 Rice 5kg from Surat to Delhi.,2025-06-25 07:44 AM,In Review
+W102,Move 21 LED Bulb from Kolkata to Jaipur.,2025-06-28 01:58 PM,Pending
+W103,Move 44 Handwash 250ml from Mumbai to Delhi.,2025-06-26 03:15 PM,Pending
+W104,Move 42 LED Bulb from Jaipur to Delhi.,2025-06-30 01:06 AM,In Review
+W105,Move 45 Handwash 250ml from Kolkata to Mumbai.,2025-06-23 06:56 PM,In Review
+W106,Move 20 Notebook A5 from Delhi to Surat.,2025-06-28 07:47 PM,Completed
+W107,Move 35 Notebook A5 from Kolkata to Surat.,2025-06-25 05:35 AM,In Review
+W108,Move 31 Handwash 250ml from Kolkata to Jaipur.,2025-06-25 08:18 AM,Pending
+W109,Move 31 Rice 5kg from Jaipur to Mumbai.,2025-06-30 01:44 AM,Completed
+W110,Move 95 Kurta Set from Mumbai to Jaipur.,2025-06-29 06:00 AM,Pending
+W111,Move 67 LED Bulb from Jaipur to Mumbai.,2025-06-30 08:54 AM,Completed
+W112,Move 44 Rice 5kg from Delhi to Jaipur.,2025-06-28 06:02 AM,Completed
+W113,Move 56 Rice 5kg from Delhi to Mumbai.,2025-06-30 12:58 PM,In Review
+W114,Move 60 LED Bulb from Mumbai to Mumbai.,2025-06-26 05:50 AM,Completed
+W115,Move 45 Rice 5kg from Delhi to Delhi.,2025-06-30 06:22 AM,In Review
+W116,Move 76 Notebook A5 from Jaipur to Kolkata.,2025-06-30 06:56 AM,Completed
+W117,Move 94 Notebook A5 from Delhi to Surat.,2025-06-24 01:42 PM,Completed
+W118,Move 100 Rice 5kg from Jaipur to Surat.,2025-06-25 04:10 PM,Completed
+W119,Move 39 Handwash 250ml from Surat to Mumbai.,2025-06-29 11:34 PM,In Review
+W120,Move 75 Notebook A5 from Delhi to Mumbai.,2025-06-29 05:35 PM,Completed
+W121,Move 84 Handwash 250ml from Delhi to Jaipur.,2025-06-29 06:54 AM,In Review
+W122,Move 46 Notebook A5 from Mumbai to Kolkata.,2025-06-27 01:18 PM,Completed
+W123,Move 24 Kurta Set from Surat to Mumbai.,2025-06-29 07:04 PM,Completed
+W124,Move 37 LED Bulb from Surat to Delhi.,2025-06-30 06:03 AM,Completed
+W125,Move 92 LED Bulb from Surat to Jaipur.,2025-06-28 12:50 AM,Completed
+W126,Move 33 Notebook A5 from Jaipur to Mumbai.,2025-06-28 08:14 AM,Completed
+W127,Move 80 Notebook A5 from Delhi to Jaipur.,2025-06-26 12:07 AM,Pending
+W128,Move 65 Notebook A5 from Mumbai to Kolkata.,2025-06-25 02:56 PM,In Review
+W129,Move 43 Kurta Set from Kolkata to Surat.,2025-06-26 07:10 PM,Completed
+W130,Move 95 Handwash 250ml from Kolkata to Kolkata.,2025-06-23 09:00 PM,Completed
+W131,Move 51 Notebook A5 from Delhi to Surat.,2025-06-30 07:24 AM,Completed
+W132,Move 81 LED Bulb from Delhi to Jaipur.,2025-06-25 11:42 AM,Pending
+W133,Move 84 Kurta Set from Kolkata to Kolkata.,2025-06-26 02:15 AM,Completed
+W134,Move 93 LED Bulb from Surat to Jaipur.,2025-06-30 01:33 PM,Pending
+W135,Move 85 Rice 5kg from Delhi to Surat.,2025-06-29 11:33 PM,In Review
+W136,Move 87 Rice 5kg from Surat to Mumbai.,2025-06-25 04:26 PM,Pending
+W137,Move 62 Kurta Set from Jaipur to Delhi.,2025-06-28 08:47 PM,Pending
+W138,Move 64 LED Bulb from Kolkata to Mumbai.,2025-06-30 05:50 AM,Completed
+W139,Move 20 Rice 5kg from Mumbai to Mumbai.,2025-06-26 11:31 AM,Completed
+W140,Move 59 Kurta Set from Mumbai to Mumbai.,2025-06-27 05:46 AM,Pending
+W141,Move 75 Kurta Set from Mumbai to Mumbai.,2025-06-28 04:19 AM,In Review
+W142,Move 91 Notebook A5 from Jaipur to Kolkata.,2025-06-27 12:35 PM,Pending
+W143,Move 64 Kurta Set from Kolkata to Surat.,2025-06-26 05:17 AM,In Review
+W144,Move 70 Rice 5kg from Kolkata to Kolkata.,2025-06-27 11:33 PM,Completed
+W145,Move 51 Kurta Set from Kolkata to Mumbai.,2025-06-24 11:17 AM,Completed
+W146,Move 37 LED Bulb from Delhi to Delhi.,2025-06-25 09:53 PM,In Review
+W147,Move 74 Handwash 250ml from Kolkata to Surat.,2025-06-28 04:18 PM,Pending
+W148,Move 64 LED Bulb from Surat to Jaipur.,2025-06-26 05:56 PM,Pending
+W149,Move 97 Rice 5kg from Mumbai to Delhi.,2025-06-26 07:33 AM,Completed
+W150,Move 63 Handwash 250ml from Jaipur to Surat.,2025-06-27 12:54 PM,In Review
+W151,Move 70 Kurta Set from Mumbai to Mumbai.,2025-06-30 02:35 AM,Completed
+W152,Move 44 Kurta Set from Mumbai to Delhi.,2025-06-26 01:48 PM,Completed
+W153,Move 31 Notebook A5 from Kolkata to Mumbai.,2025-06-24 02:26 AM,Completed
+W154,Move 39 Notebook A5 from Delhi to Kolkata.,2025-06-24 09:02 PM,In Review
+W155,Move 81 Kurta Set from Delhi to Kolkata.,2025-06-28 07:39 PM,Pending
+W156,Move 40 LED Bulb from Surat to Jaipur.,2025-06-26 12:08 PM,Completed
+W157,Move 30 Notebook A5 from Jaipur to Kolkata.,2025-06-29 01:30 AM,Pending
+W158,Move 40 Notebook A5 from Mumbai to Surat.,2025-06-23 06:59 PM,In Review
+W159,Move 69 LED Bulb from Jaipur to Kolkata.,2025-06-30 06:34 AM,In Review
+W160,Move 71 LED Bulb from Jaipur to Delhi.,2025-06-27 06:40 PM,Completed
+W161,Move 53 Kurta Set from Surat to Kolkata.,2025-06-24 12:50 PM,In Review
+W162,Move 67 LED Bulb from Delhi to Surat.,2025-06-30 07:31 AM,Completed
+W163,Move 34 Rice 5kg from Kolkata to Surat.,2025-06-28 02:13 PM,Completed
+W164,Move 30 Rice 5kg from Jaipur to Delhi.,2025-06-27 04:53 PM,In Review
+W165,Move 95 Notebook A5 from Mumbai to Surat.,2025-06-28 01:10 AM,In Review
+W166,Move 78 LED Bulb from Jaipur to Kolkata.,2025-06-27 06:25 PM,Completed
+W167,Move 25 Kurta Set from Kolkata to Kolkata.,2025-06-28 03:03 PM,Completed
+W168,Move 26 Handwash 250ml from Delhi to Delhi.,2025-06-27 12:54 AM,Completed
+W169,Move 63 Notebook A5 from Jaipur to Surat.,2025-06-26 02:13 PM,Completed
+W170,Move 42 Notebook A5 from Delhi to Kolkata.,2025-06-29 01:04 AM,Pending
+W171,Move 77 Notebook A5 from Delhi to Jaipur.,2025-06-25 12:49 AM,In Review
+W172,Move 34 Notebook A5 from Jaipur to Surat.,2025-06-27 09:51 PM,In Review
+W173,Move 70 Rice 5kg from Mumbai to Jaipur.,2025-06-28 10:19 PM,In Review
+W174,Move 32 Rice 5kg from Mumbai to Kolkata.,2025-06-26 09:33 AM,Completed
+W175,Move 55 Notebook A5 from Kolkata to Surat.,2025-06-30 03:03 PM,Pending
+W176,Move 87 Handwash 250ml from Kolkata to Jaipur.,2025-06-23 09:38 PM,Pending
+W177,Move 61 Notebook A5 from Jaipur to Mumbai.,2025-06-23 06:48 PM,In Review
+W178,Move 32 LED Bulb from Surat to Jaipur.,2025-06-26 11:56 PM,Completed
+W179,Move 58 LED Bulb from Kolkata to Jaipur.,2025-06-26 11:15 PM,Pending
+W180,Move 52 Kurta Set from Kolkata to Jaipur.,2025-06-29 03:04 PM,Pending
+W181,Move 93 Notebook A5 from Delhi to Surat.,2025-06-24 02:15 PM,In Review
+W182,Move 89 Rice 5kg from Jaipur to Delhi.,2025-06-25 04:31 PM,In Review
+W183,Move 80 Rice 5kg from Kolkata to Delhi.,2025-06-25 09:37 AM,In Review
+W184,Move 43 Notebook A5 from Surat to Jaipur.,2025-06-24 08:43 AM,In Review
+W185,Move 71 Rice 5kg from Delhi to Delhi.,2025-06-23 06:51 PM,Pending
+W186,Move 72 Rice 5kg from Jaipur to Kolkata.,2025-06-26 01:18 AM,In Review
+W187,Move 36 Notebook A5 from Delhi to Kolkata.,2025-06-24 03:27 AM,In Review
+W188,Move 60 Kurta Set from Mumbai to Mumbai.,2025-06-24 03:20 AM,Pending
+W189,Move 61 Rice 5kg from Jaipur to Surat.,2025-06-27 04:19 AM,Completed
+W190,Move 97 LED Bulb from Surat to Kolkata.,2025-06-28 12:46 AM,In Review
+W191,Move 96 Notebook A5 from Surat to Kolkata.,2025-06-26 11:13 PM,Completed
+W192,Move 91 Kurta Set from Delhi to Delhi.,2025-06-26 02:10 AM,Completed
+W193,Move 64 LED Bulb from Mumbai to Kolkata.,2025-06-28 02:45 PM,In Review
+W194,Move 83 Rice 5kg from Surat to Mumbai.,2025-06-29 05:08 PM,In Review
+W195,Move 69 Notebook A5 from Kolkata to Jaipur.,2025-06-24 06:55 AM,In Review
+W196,Move 93 Kurta Set from Kolkata to Surat.,2025-06-26 08:04 PM,Completed
+W197,Move 30 Rice 5kg from Surat to Delhi.,2025-06-26 10:05 PM,Completed
+W198,Move 57 Notebook A5 from Kolkata to Kolkata.,2025-06-28 09:25 PM,Pending
+W199,Move 39 Handwash 250ml from Surat to Mumbai.,2025-06-30 01:08 AM,In Review
+W200,Move 65 Handwash 250ml from Kolkata to Kolkata.,2025-06-25 02:17 AM,Pending
+W201,Move 56 Handwash 250ml from Kolkata to Mumbai.,2025-06-25 09:02 AM,Completed
+W202,Move 88 Rice 5kg from Kolkata to Surat.,2025-06-28 11:59 AM,Pending
+W203,Move 32 LED Bulb from Mumbai to Mumbai.,2025-06-24 01:00 PM,Pending
+W204,Move 93 Notebook A5 from Mumbai to Mumbai.,2025-06-24 12:15 AM,In Review
+W205,Move 71 Handwash 250ml from Kolkata to Delhi.,2025-06-28 05:54 AM,Pending
+W206,Move 73 Handwash 250ml from Delhi to Delhi.,2025-06-26 10:20 PM,Completed
+W207,Move 100 Kurta Set from Delhi to Surat.,2025-06-25 04:26 PM,In Review
+W208,Move 88 LED Bulb from Mumbai to Kolkata.,2025-06-24 11:34 AM,Completed
+W209,Move 79 Notebook A5 from Kolkata to Mumbai.,2025-06-29 09:51 AM,Pending
+W210,Move 71 Notebook A5 from Jaipur to Surat.,2025-06-23 05:56 PM,Completed
+W211,Move 79 Rice 5kg from Jaipur to Kolkata.,2025-06-25 10:46 AM,In Review
+W212,Move 73 LED Bulb from Kolkata to Mumbai.,2025-06-28 04:01 PM,In Review
+W213,Move 23 Handwash 250ml from Mumbai to Mumbai.,2025-06-26 06:26 PM,In Review
+W214,Move 99 Handwash 250ml from Jaipur to Surat.,2025-06-26 09:20 PM,In Review
+W215,Move 72 Kurta Set from Delhi to Surat.,2025-06-24 04:28 AM,Pending
+W216,Move 41 Handwash 250ml from Kolkata to Jaipur.,2025-06-27 07:24 PM,Completed
+W217,Move 22 Handwash 250ml from Kolkata to Surat.,2025-06-25 04:06 PM,In Review
+W218,Move 44 Rice 5kg from Kolkata to Delhi.,2025-06-25 10:50 PM,In Review
+W219,Move 50 Rice 5kg from Kolkata to Mumbai.,2025-06-24 09:21 PM,Completed
+W220,Move 36 Notebook A5 from Jaipur to Jaipur.,2025-06-26 04:29 AM,Pending
+W221,Move 93 LED Bulb from Kolkata to Mumbai.,2025-06-29 08:48 AM,In Review
+W222,Move 97 LED Bulb from Mumbai to Mumbai.,2025-06-24 02:50 PM,Completed
+W223,Move 84 Kurta Set from Surat to Delhi.,2025-06-28 11:30 PM,Pending
+W224,Move 51 LED Bulb from Jaipur to Jaipur.,2025-06-27 01:39 PM,In Review
+W225,Move 24 LED Bulb from Surat to Kolkata.,2025-06-25 09:09 AM,Completed
+W226,Move 29 LED Bulb from Delhi to Surat.,2025-06-24 08:01 PM,Pending
+W227,Move 97 Handwash 250ml from Jaipur to Kolkata.,2025-06-24 01:18 PM,Completed
+W228,Move 27 Notebook A5 from Kolkata to Jaipur.,2025-06-29 05:59 PM,Completed
+W229,Move 71 Handwash 250ml from Kolkata to Kolkata.,2025-06-25 05:12 AM,Pending
+W230,Move 33 Rice 5kg from Delhi to Surat.,2025-06-27 02:37 AM,Pending
+W231,Move 41 Notebook A5 from Kolkata to Delhi.,2025-06-26 06:07 AM,Pending
+W232,Move 51 LED Bulb from Mumbai to Delhi.,2025-06-30 12:09 AM,Pending
+W233,Move 62 Kurta Set from Kolkata to Kolkata.,2025-06-25 02:52 AM,Pending
+W234,Move 53 Notebook A5 from Delhi to Kolkata.,2025-06-23 10:07 PM,Completed
+W235,Move 77 Notebook A5 from Surat to Delhi.,2025-06-24 05:14 AM,In Review
+W236,Move 24 Rice 5kg from Mumbai to Surat.,2025-06-30 04:39 PM,Completed
+W237,Move 23 Rice 5kg from Delhi to Surat.,2025-06-25 12:08 PM,Completed
+W238,Move 57 Notebook A5 from Mumbai to Surat.,2025-06-26 12:46 AM,In Review
+W239,Move 59 LED Bulb from Kolkata to Delhi.,2025-06-28 05:32 PM,Pending
+W240,Move 36 Rice 5kg from Surat to Delhi.,2025-06-25 06:59 AM,Completed
+W241,Move 52 Rice 5kg from Jaipur to Mumbai.,2025-06-24 06:15 PM,In Review
+W242,Move 58 Rice 5kg from Surat to Jaipur.,2025-06-25 10:39 PM,Completed
+W243,Move 66 Handwash 250ml from Surat to Kolkata.,2025-06-27 10:52 PM,Completed
+W244,Move 99 Rice 5kg from Delhi to Mumbai.,2025-06-24 01:54 AM,In Review
+W245,Move 84 Notebook A5 from Surat to Delhi.,2025-06-23 11:27 PM,Completed
+W246,Move 82 Rice 5kg from Surat to Kolkata.,2025-06-29 12:50 PM,Pending
+W247,Move 81 LED Bulb from Jaipur to Jaipur.,2025-06-27 05:57 AM,Completed
+W248,Move 48 Notebook A5 from Mumbai to Mumbai.,2025-06-24 10:49 PM,Pending
+W249,Move 55 Handwash 250ml from Jaipur to Mumbai.,2025-06-26 12:01 PM,Completed
+W250,Move 83 LED Bulb from Surat to Jaipur.,2025-06-24 12:50 AM,In Review
+W251,Move 87 Rice 5kg from Mumbai to Delhi.,2025-06-28 12:42 AM,In Review
+W252,Move 24 LED Bulb from Jaipur to Delhi.,2025-06-29 02:51 PM,In Review
+W253,Move 28 Notebook A5 from Surat to Surat.,2025-06-26 06:48 PM,In Review
+W254,Move 88 Kurta Set from Jaipur to Kolkata.,2025-06-28 11:16 PM,In Review
+W255,Move 86 Rice 5kg from Mumbai to Delhi.,2025-06-29 06:10 PM,In Review
+W256,Move 43 Rice 5kg from Mumbai to Kolkata.,2025-06-29 05:56 PM,Pending
+W257,Move 25 Handwash 250ml from Delhi to Surat.,2025-06-30 06:49 AM,Completed
+W258,Move 31 Rice 5kg from Jaipur to Mumbai.,2025-06-26 02:26 AM,In Review
+W259,Move 58 Kurta Set from Mumbai to Mumbai.,2025-06-28 01:58 PM,Pending
+W260,Move 94 Handwash 250ml from Kolkata to Kolkata.,2025-06-23 05:04 PM,Pending
+W261,Move 88 Kurta Set from Delhi to Jaipur.,2025-06-26 11:31 PM,Pending
+W262,Move 81 Kurta Set from Kolkata to Jaipur.,2025-06-25 07:23 PM,Completed
+W263,Move 45 Kurta Set from Surat to Surat.,2025-06-28 11:36 AM,Pending
+W264,Move 96 LED Bulb from Delhi to Surat.,2025-06-27 12:26 PM,Pending
+W265,Move 94 LED Bulb from Jaipur to Kolkata.,2025-06-27 02:44 AM,In Review
+W266,Move 44 Handwash 250ml from Surat to Kolkata.,2025-06-29 09:13 AM,Pending
+W267,Move 52 LED Bulb from Surat to Delhi.,2025-06-29 04:56 PM,Completed
+W268,Move 100 Rice 5kg from Delhi to Surat.,2025-06-25 03:53 PM,Completed
+W269,Move 85 Notebook A5 from Delhi to Delhi.,2025-06-27 09:36 AM,In Review
+W270,Move 51 Notebook A5 from Delhi to Surat.,2025-06-29 06:57 AM,In Review
+W271,Move 59 LED Bulb from Jaipur to Mumbai.,2025-06-25 04:25 AM,Completed
+W272,Move 20 Notebook A5 from Surat to Kolkata.,2025-06-24 06:04 AM,Completed
+W273,Move 40 Rice 5kg from Jaipur to Kolkata.,2025-06-28 11:52 AM,In Review
+W274,Move 58 Kurta Set from Kolkata to Delhi.,2025-06-24 03:53 AM,In Review
+W275,Move 88 Rice 5kg from Mumbai to Jaipur.,2025-06-25 12:48 PM,Pending
+W276,Move 47 Notebook A5 from Surat to Delhi.,2025-06-23 06:26 PM,Completed
+W277,Move 87 LED Bulb from Jaipur to Delhi.,2025-06-30 06:52 AM,In Review
+W278,Move 46 Handwash 250ml from Mumbai to Delhi.,2025-06-28 06:16 AM,Pending
+W279,Move 44 LED Bulb from Mumbai to Mumbai.,2025-06-24 07:17 PM,In Review
+W280,Move 40 Notebook A5 from Surat to Kolkata.,2025-06-26 12:19 PM,In Review
+W281,Move 96 LED Bulb from Delhi to Mumbai.,2025-06-25 04:29 AM,Completed
+W282,Move 80 Notebook A5 from Delhi to Mumbai.,2025-06-29 01:46 AM,Completed
+W283,Move 62 Notebook A5 from Delhi to Kolkata.,2025-06-24 09:49 PM,Completed
+W284,Move 74 Handwash 250ml from Kolkata to Kolkata.,2025-06-24 09:31 AM,Pending
+W285,Move 71 Kurta Set from Kolkata to Delhi.,2025-06-24 04:46 PM,In Review
+W286,Move 37 LED Bulb from Delhi to Jaipur.,2025-06-26 08:36 PM,In Review
+W287,Move 45 Rice 5kg from Delhi to Delhi.,2025-06-27 01:26 PM,Completed
+W288,Move 23 Notebook A5 from Kolkata to Kolkata.,2025-06-24 11:51 AM,Completed
+W289,Move 91 Handwash 250ml from Mumbai to Mumbai.,2025-06-26 04:29 PM,In Review
+W290,Move 84 LED Bulb from Delhi to Jaipur.,2025-06-29 01:07 PM,Pending
+W291,Move 51 Rice 5kg from Delhi to Kolkata.,2025-06-27 05:34 AM,In Review
+W292,Move 95 LED Bulb from Jaipur to Kolkata.,2025-06-26 03:45 PM,In Review
+W293,Move 82 Rice 5kg from Delhi to Surat.,2025-06-25 12:36 AM,In Review
+W294,Move 68 Kurta Set from Jaipur to Jaipur.,2025-06-28 08:21 AM,In Review
+W295,Move 63 Notebook A5 from Surat to Delhi.,2025-06-30 12:05 PM,Completed
+W296,Move 56 Kurta Set from Kolkata to Mumbai.,2025-06-29 12:00 PM,In Review
+W297,Move 29 Notebook A5 from Kolkata to Mumbai.,2025-06-27 08:25 AM,Pending
+W298,Move 95 Notebook A5 from Surat to Mumbai.,2025-06-24 07:28 AM,In Review
+W299,Move 31 LED Bulb from Mumbai to Delhi.,2025-06-24 12:21 PM,In Review
+W300,Move 89 Notebook A5 from Surat to Surat.,2025-06-24 08:15 AM,Completed
+W301,Move 22 Rice 5kg from Jaipur to Delhi.,2025-06-24 04:40 AM,Completed
+W302,Move 77 Rice 5kg from Mumbai to Delhi.,2025-06-29 04:14 AM,Completed
+W303,Move 49 LED Bulb from Delhi to Delhi.,2025-06-27 10:32 AM,Pending
+W304,Move 53 Notebook A5 from Surat to Jaipur.,2025-06-28 03:25 AM,Pending
+W305,Move 35 LED Bulb from Kolkata to Kolkata.,2025-06-29 10:28 AM,Completed
+W306,Move 26 Handwash 250ml from Jaipur to Surat.,2025-06-30 02:43 AM,Completed
+W307,Move 22 Handwash 250ml from Kolkata to Jaipur.,2025-06-24 10:33 AM,In Review
+W308,Move 61 Handwash 250ml from Kolkata to Delhi.,2025-06-27 11:27 AM,In Review
+W309,Move 62 Kurta Set from Jaipur to Surat.,2025-06-29 10:57 PM,Pending
+W310,Move 91 Kurta Set from Surat to Mumbai.,2025-06-24 01:20 AM,In Review
+W311,Move 31 Handwash 250ml from Kolkata to Surat.,2025-06-27 12:33 AM,In Review
+W312,Move 44 Kurta Set from Kolkata to Delhi.,2025-06-26 03:38 AM,Completed
+W313,Move 77 Rice 5kg from Delhi to Jaipur.,2025-06-27 07:10 PM,Pending
+W314,Move 93 Notebook A5 from Kolkata to Surat.,2025-06-28 11:30 AM,In Review
+W315,Move 75 Kurta Set from Kolkata to Surat.,2025-06-29 01:59 PM,Completed
+W316,Move 20 Handwash 250ml from Kolkata to Jaipur.,2025-06-25 01:58 PM,Pending
+W317,Move 48 Notebook A5 from Kolkata to Mumbai.,2025-06-29 06:58 PM,Completed
+W318,Move 48 Handwash 250ml from Delhi to Surat.,2025-06-29 08:35 AM,Completed
+W319,Move 45 Handwash 250ml from Delhi to Surat.,2025-06-25 03:08 PM,Pending
+W320,Move 44 Rice 5kg from Mumbai to Delhi.,2025-06-27 09:42 AM,Pending
+W321,Move 32 Kurta Set from Surat to Surat.,2025-06-24 01:16 PM,Pending
+W322,Move 36 Handwash 250ml from Delhi to Jaipur.,2025-06-30 04:06 PM,Completed
+W323,Move 60 Rice 5kg from Mumbai to Mumbai.,2025-06-30 05:33 AM,Completed
+W324,Move 40 LED Bulb from Delhi to Mumbai.,2025-06-24 11:20 AM,Pending
+W325,Move 65 Kurta Set from Mumbai to Kolkata.,2025-06-23 06:27 PM,Pending
+W326,Move 68 Kurta Set from Kolkata to Mumbai.,2025-06-28 03:09 AM,Completed
+W327,Move 26 LED Bulb from Kolkata to Kolkata.,2025-06-26 08:24 AM,Pending
+W328,Move 46 LED Bulb from Surat to Jaipur.,2025-06-28 06:30 PM,Pending
+W329,Move 42 Handwash 250ml from Surat to Surat.,2025-06-23 07:52 PM,Pending
+W330,Move 40 Rice 5kg from Jaipur to Kolkata.,2025-06-29 06:35 AM,In Review
+W331,Move 97 Notebook A5 from Delhi to Kolkata.,2025-06-24 05:21 PM,Pending
+W332,Move 46 Kurta Set from Surat to Delhi.,2025-06-28 12:12 PM,Completed
+W333,Move 52 Handwash 250ml from Jaipur to Kolkata.,2025-06-26 04:44 AM,Pending
+W334,Move 20 LED Bulb from Kolkata to Kolkata.,2025-06-23 10:32 PM,Pending
+W335,Move 65 Notebook A5 from Delhi to Jaipur.,2025-06-29 12:58 PM,Completed
+W336,Move 58 Rice 5kg from Jaipur to Kolkata.,2025-06-23 10:12 PM,Completed
+W337,Move 22 Notebook A5 from Delhi to Jaipur.,2025-06-24 04:16 PM,Pending
+W338,Move 51 Rice 5kg from Surat to Jaipur.,2025-06-27 09:24 AM,Pending
+W339,Move 86 Rice 5kg from Mumbai to Kolkata.,2025-06-27 05:15 AM,Pending
+W340,Move 27 Handwash 250ml from Mumbai to Delhi.,2025-06-30 05:25 AM,Completed
+W341,Move 99 LED Bulb from Mumbai to Kolkata.,2025-06-23 09:04 PM,Pending
+W342,Move 42 Handwash 250ml from Mumbai to Mumbai.,2025-06-26 03:15 AM,Completed
+W343,Move 34 Rice 5kg from Jaipur to Kolkata.,2025-06-29 12:12 PM,Pending
+W344,Move 59 LED Bulb from Delhi to Delhi.,2025-06-26 03:56 AM,In Review
+W345,Move 61 Kurta Set from Jaipur to Delhi.,2025-06-25 06:00 AM,Pending
+W346,Move 80 Kurta Set from Mumbai to Kolkata.,2025-06-25 12:04 AM,Pending
+W347,Move 89 LED Bulb from Surat to Surat.,2025-06-23 11:09 PM,Pending
+W348,Move 40 Kurta Set from Jaipur to Delhi.,2025-06-30 02:53 PM,Pending
+W349,Move 31 LED Bulb from Jaipur to Jaipur.,2025-06-29 02:04 PM,Completed
+W350,Move 79 LED Bulb from Surat to Kolkata.,2025-06-27 12:49 AM,Pending
+W351,Move 97 Kurta Set from Delhi to Kolkata.,2025-06-24 11:06 AM,Completed
+W352,Move 52 Rice 5kg from Delhi to Surat.,2025-06-25 01:15 PM,Completed
+W353,Move 98 Kurta Set from Kolkata to Kolkata.,2025-06-27 09:40 PM,In Review
+W354,Move 93 Rice 5kg from Mumbai to Mumbai.,2025-06-27 10:55 PM,In Review
+W355,Move 36 Rice 5kg from Mumbai to Jaipur.,2025-06-28 05:29 PM,In Review
+W356,Move 32 LED Bulb from Delhi to Surat.,2025-06-29 11:07 AM,Pending
+W357,Move 51 Rice 5kg from Delhi to Mumbai.,2025-06-29 02:09 PM,In Review
+W358,Move 58 Notebook A5 from Kolkata to Surat.,2025-06-27 03:56 AM,In Review
+W359,Move 86 Handwash 250ml from Delhi to Mumbai.,2025-06-28 01:03 AM,Completed
+W360,Move 74 Notebook A5 from Mumbai to Surat.,2025-06-26 08:54 PM,In Review
+W361,Move 24 LED Bulb from Jaipur to Mumbai.,2025-06-26 07:59 PM,Pending
+W362,Move 21 Rice 5kg from Jaipur to Mumbai.,2025-06-25 06:20 PM,Pending
+W363,Move 70 Notebook A5 from Jaipur to Surat.,2025-06-27 04:09 PM,Completed
+W364,Move 81 Notebook A5 from Mumbai to Surat.,2025-06-25 09:06 PM,Completed
+W365,Move 77 Rice 5kg from Kolkata to Surat.,2025-06-30 06:14 AM,Completed
+W366,Move 89 LED Bulb from Jaipur to Delhi.,2025-06-24 10:24 PM,In Review
+W367,Move 85 Notebook A5 from Delhi to Mumbai.,2025-06-26 08:55 AM,Completed
+W368,Move 63 LED Bulb from Surat to Kolkata.,2025-06-29 01:35 AM,In Review
+W369,Move 32 Notebook A5 from Surat to Delhi.,2025-06-30 05:48 AM,Pending
+W370,Move 66 LED Bulb from Jaipur to Surat.,2025-06-30 01:43 AM,Pending
+W371,Move 32 Rice 5kg from Kolkata to Jaipur.,2025-06-27 10:38 PM,Pending
+W372,Move 90 Notebook A5 from Mumbai to Delhi.,2025-06-25 02:00 AM,Completed
+W373,Move 77 LED Bulb from Surat to Jaipur.,2025-06-27 05:45 PM,In Review
+W374,Move 43 LED Bulb from Surat to Mumbai.,2025-06-29 06:54 AM,Pending
+W375,Move 48 Kurta Set from Mumbai to Delhi.,2025-06-30 01:00 AM,In Review
+W376,Move 96 Rice 5kg from Surat to Surat.,2025-06-27 09:41 AM,In Review
+W377,Move 26 Handwash 250ml from Delhi to Surat.,2025-06-29 03:00 AM,Pending
+W378,Move 87 Rice 5kg from Delhi to Mumbai.,2025-06-29 06:00 AM,Pending
+W379,Move 41 Handwash 250ml from Mumbai to Mumbai.,2025-06-29 12:36 PM,In Review
+W380,Move 98 LED Bulb from Mumbai to Delhi.,2025-06-28 08:14 PM,Pending
+W381,Move 71 Notebook A5 from Kolkata to Surat.,2025-06-28 07:48 PM,Completed
+W382,Move 80 LED Bulb from Delhi to Mumbai.,2025-06-28 10:19 AM,In Review
+W383,Move 58 Kurta Set from Jaipur to Delhi.,2025-06-27 08:52 AM,In Review
+W384,Move 91 Notebook A5 from Mumbai to Surat.,2025-06-27 07:07 PM,In Review
+W385,Move 28 Kurta Set from Kolkata to Mumbai.,2025-06-25 04:50 PM,Pending
+W386,Move 81 Rice 5kg from Mumbai to Kolkata.,2025-06-29 11:58 PM,Pending
+W387,Move 73 LED Bulb from Surat to Mumbai.,2025-06-24 04:32 AM,Pending
+W388,Move 64 Kurta Set from Mumbai to Delhi.,2025-06-30 12:22 AM,Pending
+W389,Move 71 Kurta Set from Surat to Mumbai.,2025-06-29 03:45 AM,Pending
+W390,Move 76 Rice 5kg from Delhi to Delhi.,2025-06-25 05:30 PM,Pending
+W391,Move 35 Handwash 250ml from Delhi to Surat.,2025-06-24 02:36 AM,Pending
+W392,Move 100 Handwash 250ml from Kolkata to Mumbai.,2025-06-29 07:33 PM,In Review
+W393,Move 76 Notebook A5 from Jaipur to Surat.,2025-06-25 05:31 PM,In Review
+W394,Move 98 LED Bulb from Mumbai to Jaipur.,2025-06-30 04:00 AM,In Review
+W395,Move 63 Notebook A5 from Jaipur to Kolkata.,2025-06-28 01:29 AM,Completed
+W396,Move 34 LED Bulb from Kolkata to Surat.,2025-06-27 02:13 PM,Pending
+W397,Move 82 Notebook A5 from Mumbai to Surat.,2025-06-26 12:29 PM,Pending
+W398,Move 31 Handwash 250ml from Surat to Delhi.,2025-06-26 11:19 AM,Pending
+W399,Move 83 LED Bulb from Kolkata to Jaipur.,2025-06-26 11:15 AM,In Review
+W400,Move 33 Notebook A5 from Delhi to Delhi.,2025-06-26 08:36 AM,In Review
+W401,Move 85 Notebook A5 from Kolkata to Delhi.,2025-06-29 10:23 AM,Completed
+W402,Move 30 Kurta Set from Jaipur to Kolkata.,2025-06-26 04:49 PM,Pending
+W403,Move 94 LED Bulb from Mumbai to Surat.,2025-06-29 05:34 PM,Completed
+W404,Move 54 Kurta Set from Kolkata to Surat.,2025-06-23 05:09 PM,In Review
+W405,Move 92 LED Bulb from Surat to Surat.,2025-06-30 09:41 AM,In Review
+W406,Move 68 Kurta Set from Surat to Jaipur.,2025-06-28 10:15 PM,In Review
+W407,Move 32 Handwash 250ml from Jaipur to Jaipur.,2025-06-27 05:49 PM,Pending
+W408,Move 66 Handwash 250ml from Surat to Kolkata.,2025-06-25 12:02 AM,Completed
+W409,Move 25 Notebook A5 from Kolkata to Kolkata.,2025-06-26 12:51 AM,In Review
+W410,Move 86 Kurta Set from Kolkata to Kolkata.,2025-06-25 05:59 PM,In Review
+W411,Move 23 Rice 5kg from Surat to Mumbai.,2025-06-24 01:51 PM,Pending
+W412,Move 100 Notebook A5 from Jaipur to Delhi.,2025-06-30 04:22 PM,Completed
+W413,Move 23 LED Bulb from Delhi to Delhi.,2025-06-25 07:22 PM,In Review
+W414,Move 64 Notebook A5 from Mumbai to Delhi.,2025-06-25 04:40 AM,Completed
+W415,Move 26 Notebook A5 from Kolkata to Delhi.,2025-06-29 02:32 PM,Pending
+W416,Move 46 Handwash 250ml from Surat to Delhi.,2025-06-30 04:26 AM,In Review
+W417,Move 71 Notebook A5 from Mumbai to Kolkata.,2025-06-25 11:45 PM,Pending
+W418,Move 62 Notebook A5 from Surat to Surat.,2025-06-24 10:44 AM,In Review
+W419,Move 49 Notebook A5 from Delhi to Jaipur.,2025-06-24 12:04 PM,In Review
+W420,Move 31 LED Bulb from Delhi to Surat.,2025-06-30 01:32 PM,Completed
+W421,Move 43 LED Bulb from Mumbai to Delhi.,2025-06-26 11:42 PM,In Review
+W422,Move 82 Notebook A5 from Delhi to Kolkata.,2025-06-30 01:28 PM,Completed
+W423,Move 40 Rice 5kg from Delhi to Jaipur.,2025-06-28 03:09 PM,Pending
+W424,Move 44 Handwash 250ml from Delhi to Surat.,2025-06-28 01:37 PM,In Review
+W425,Move 91 Notebook A5 from Surat to Surat.,2025-06-25 05:46 AM,Pending
+W426,Move 70 Handwash 250ml from Jaipur to Mumbai.,2025-06-28 07:26 PM,Pending
+W427,Move 31 Handwash 250ml from Kolkata to Delhi.,2025-06-30 08:30 AM,Pending
+W428,Move 63 Handwash 250ml from Delhi to Kolkata.,2025-06-29 02:36 AM,Pending
+W429,Move 69 Kurta Set from Delhi to Surat.,2025-06-24 07:08 AM,In Review
+W430,Move 30 Notebook A5 from Mumbai to Kolkata.,2025-06-27 04:11 PM,Pending
+W431,Move 51 Handwash 250ml from Mumbai to Delhi.,2025-06-24 04:32 PM,Pending
+W432,Move 83 Rice 5kg from Mumbai to Mumbai.,2025-06-28 11:13 PM,Pending
+W433,Move 76 Rice 5kg from Mumbai to Jaipur.,2025-06-30 02:57 PM,Completed
+W434,Move 51 Kurta Set from Surat to Kolkata.,2025-06-24 02:24 PM,Completed
+W435,Move 73 Handwash 250ml from Surat to Surat.,2025-06-26 03:23 AM,Pending
+W436,Move 72 Rice 5kg from Surat to Surat.,2025-06-30 03:51 PM,Completed
+W437,Move 100 Handwash 250ml from Kolkata to Delhi.,2025-06-23 11:34 PM,In Review
+W438,Move 66 Notebook A5 from Kolkata to Delhi.,2025-06-27 02:08 AM,Completed
+W439,Move 50 Notebook A5 from Surat to Delhi.,2025-06-29 12:47 PM,Pending
+W440,Move 37 Notebook A5 from Mumbai to Surat.,2025-06-25 11:45 PM,In Review
+W441,Move 36 Kurta Set from Surat to Kolkata.,2025-06-29 01:00 PM,In Review
+W442,Move 60 Kurta Set from Surat to Mumbai.,2025-06-28 08:53 PM,In Review
+W443,Move 64 Handwash 250ml from Mumbai to Kolkata.,2025-06-27 06:52 PM,Completed
+W444,Move 93 Kurta Set from Kolkata to Surat.,2025-06-28 07:13 AM,Completed
+W445,Move 83 Handwash 250ml from Kolkata to Jaipur.,2025-06-30 05:49 AM,Pending
+W446,Move 22 Handwash 250ml from Kolkata to Surat.,2025-06-26 03:08 AM,In Review
+W447,Move 27 Notebook A5 from Kolkata to Mumbai.,2025-06-23 08:06 PM,Pending
+W448,Move 65 Kurta Set from Delhi to Surat.,2025-06-23 09:51 PM,Completed
+W449,Move 23 Handwash 250ml from Kolkata to Kolkata.,2025-06-25 08:42 PM,In Review
+W450,Move 37 LED Bulb from Mumbai to Kolkata.,2025-06-24 07:25 PM,Completed
+W451,Move 88 Notebook A5 from Delhi to Mumbai.,2025-06-27 07:25 AM,In Review
+W452,Move 85 LED Bulb from Mumbai to Surat.,2025-06-29 03:43 AM,In Review
+W453,Move 95 Notebook A5 from Jaipur to Surat.,2025-06-29 03:38 PM,Pending
+W454,Move 65 Handwash 250ml from Jaipur to Jaipur.,2025-06-25 04:56 PM,In Review
+W455,Move 28 Handwash 250ml from Kolkata to Mumbai.,2025-06-28 11:43 PM,In Review
+W456,Move 44 Rice 5kg from Surat to Mumbai.,2025-06-24 11:34 AM,Pending
+W457,Move 23 LED Bulb from Jaipur to Delhi.,2025-06-30 03:39 PM,Pending
+W458,Move 32 LED Bulb from Surat to Kolkata.,2025-06-30 02:33 PM,Completed
+W459,Move 68 LED Bulb from Mumbai to Delhi.,2025-06-30 03:08 PM,Pending
+W460,Move 32 Notebook A5 from Delhi to Mumbai.,2025-06-29 11:04 AM,In Review
+W461,Move 75 Notebook A5 from Kolkata to Jaipur.,2025-06-24 02:47 AM,Pending
+W462,Move 53 LED Bulb from Mumbai to Mumbai.,2025-06-30 01:51 AM,Completed
+W463,Move 30 Notebook A5 from Kolkata to Jaipur.,2025-06-24 03:01 AM,In Review
+W464,Move 52 Kurta Set from Surat to Jaipur.,2025-06-28 12:33 AM,In Review
+W465,Move 27 Notebook A5 from Jaipur to Mumbai.,2025-06-27 05:35 AM,Pending
+W466,Move 87 Kurta Set from Jaipur to Delhi.,2025-06-26 09:18 AM,Completed
+W467,Move 59 Kurta Set from Surat to Surat.,2025-06-24 07:40 PM,Completed
+W468,Move 28 Rice 5kg from Mumbai to Surat.,2025-06-30 03:25 PM,Completed
+W469,Move 43 Handwash 250ml from Mumbai to Delhi.,2025-06-23 09:36 PM,Pending
+W470,Move 39 Handwash 250ml from Delhi to Surat.,2025-06-26 11:35 AM,Pending
+W471,Move 76 Rice 5kg from Surat to Mumbai.,2025-06-26 09:37 PM,Completed
+W472,Move 23 Handwash 250ml from Jaipur to Surat.,2025-06-27 02:59 AM,Pending
+W473,Move 59 Notebook A5 from Jaipur to Delhi.,2025-06-29 08:23 PM,In Review
+W474,Move 43 Handwash 250ml from Surat to Mumbai.,2025-06-24 04:11 AM,Pending
+W475,Move 83 Rice 5kg from Surat to Mumbai.,2025-06-28 11:19 AM,In Review
+W476,Move 63 LED Bulb from Surat to Kolkata.,2025-06-24 02:44 PM,Completed
+W477,Move 34 Handwash 250ml from Jaipur to Delhi.,2025-06-29 04:27 AM,Pending
+W478,Move 66 Rice 5kg from Mumbai to Kolkata.,2025-06-29 09:09 AM,Pending
+W479,Move 71 Kurta Set from Delhi to Jaipur.,2025-06-25 04:35 PM,Completed
+W480,Move 95 Kurta Set from Surat to Jaipur.,2025-06-28 10:05 PM,In Review
+W481,Move 61 Handwash 250ml from Surat to Surat.,2025-06-30 08:48 AM,In Review
+W482,Move 88 Handwash 250ml from Kolkata to Surat.,2025-06-26 05:14 PM,In Review
+W483,Move 45 Notebook A5 from Delhi to Mumbai.,2025-06-26 05:34 PM,Completed
+W484,Move 45 Notebook A5 from Kolkata to Kolkata.,2025-06-25 06:02 AM,Completed
+W485,Move 68 Kurta Set from Kolkata to Jaipur.,2025-06-28 06:30 AM,Completed
+W486,Move 33 Notebook A5 from Surat to Kolkata.,2025-06-27 10:53 PM,In Review
+W487,Move 69 Notebook A5 from Kolkata to Delhi.,2025-06-25 05:27 AM,In Review
+W488,Move 27 Handwash 250ml from Jaipur to Mumbai.,2025-06-25 05:01 AM,Pending
+W489,Move 59 Handwash 250ml from Surat to Surat.,2025-06-29 08:58 AM,Pending
+W490,Move 60 Kurta Set from Surat to Jaipur.,2025-06-23 09:16 PM,Pending
+W491,Move 58 LED Bulb from Mumbai to Delhi.,2025-06-27 03:39 PM,In Review
+W492,Move 26 LED Bulb from Surat to Surat.,2025-06-27 11:15 PM,Pending
+W493,Move 85 Notebook A5 from Jaipur to Mumbai.,2025-06-25 08:34 AM,Pending
+W494,Move 78 Rice 5kg from Mumbai to Delhi.,2025-06-24 11:18 PM,Pending
+W495,Move 46 LED Bulb from Mumbai to Surat.,2025-06-23 09:54 PM,In Review
+W496,Move 98 Kurta Set from Jaipur to Kolkata.,2025-06-26 03:00 AM,Pending
+W497,Move 34 Notebook A5 from Jaipur to Mumbai.,2025-06-30 07:07 AM,In Review
+W498,Move 62 Rice 5kg from Kolkata to Mumbai.,2025-06-26 06:18 PM,Completed
+W499,Move 71 Kurta Set from Mumbai to Mumbai.,2025-06-29 08:46 AM,In Review

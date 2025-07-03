@@ -271,19 +271,7 @@ export function WalmartSidebar({ userType }: SidebarProps) {
       </nav>
 
       {/* Footer */}
-      {!collapsed && (
-        <div className="absolute bottom-4 left-4 right-4">
-          <div className="bg-blue-50 dark:bg-blue-900/20 rounded-lg p-3">
-            <div className="flex items-center mb-2">
-              <Zap className="h-4 w-4 text-blue-600 mr-2" />
-              <span className="text-sm font-medium text-blue-900 dark:text-blue-300">Walmart SparkAI</span>
-            </div>
-            <p className="text-xs text-blue-700 dark:text-blue-400">
-              Powered by advanced AI for smarter retail decisions
-            </p>
-          </div>
-        </div>
-      )}
+      
     </div>
   )
 }

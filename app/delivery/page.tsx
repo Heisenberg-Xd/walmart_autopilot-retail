@@ -8,10 +8,34 @@ import { WalmartSidebar } from "@/components/walmart-sidebar"
 import { AIChatbot } from "@/components/ai-chatbot"
 import { MapPin, Clock, Package, Truck, Star, Leaf } from "lucide-react"
 
+interface DeliveryAnalytics {
+  total_deliveries: number
+  total_distance_km: number
+  carbon_saved_g: number
+}
+
+interface Delivery {
+  order_id: string
+  customer_name: string
+  address: string
+  status: string
+  eta: string
+}
+
 export default function DeliveryDashboard() {
   const [loading, setLoading] = useState(true)
+  const [ecoStats, setEcoStats] = useState<DeliveryAnalytics | null>(null)
+  const [deliveries, setDeliveries] = useState<Delivery[]>([])
 
   useEffect(() => {
+    fetch("http://localhost:5000/api/eco")
+      .then((res) => res.json())
+      .then((data) => setEcoStats(data))
+
+    fetch("http://localhost:5000/api/delivery")
+      .then((res) => res.json())
+      .then((data) => setDeliveries(data))
+
     const timer = setTimeout(() => {
       setLoading(false)
     }, 1000)
@@ -58,7 +82,9 @@ export default function DeliveryDashboard() {
                 </div>
               </div>
               <div className="text-right">
-                <div className="text-2xl font-bold text-green-600 dark:text-green-400">12</div>
+                <div className="text-2xl font-bold text-green-600 dark:text-green-400">
+                  {ecoStats?.total_deliveries ?? "–"}
+                </div>
                 <p className="text-sm text-gray-600 dark:text-gray-400">Deliveries Today</p>
               </div>
             </div>
@@ -72,7 +98,7 @@ export default function DeliveryDashboard() {
                 <Package className="h-4 w-4 text-muted-foreground" />
               </CardHeader>
               <CardContent>
-                <div className="text-2xl font-bold">8</div>
+                <div className="text-2xl font-bold">{deliveries.length}</div>
                 <p className="text-xs text-muted-foreground">In your queue</p>
               </CardContent>
             </Card>
@@ -105,7 +131,9 @@ export default function DeliveryDashboard() {
                 <Leaf className="h-4 w-4 text-muted-foreground" />
               </CardHeader>
               <CardContent>
-                <div className="text-2xl font-bold text-green-600">9.2</div>
+                <div className="text-2xl font-bold text-green-600">
+                  {(ecoStats?.carbon_saved_g ?? 0 / 1000).toFixed(2)}
+                </div>
                 <p className="text-xs text-muted-foreground">Carbon efficiency</p>
               </CardContent>
             </Card>
@@ -115,7 +143,7 @@ export default function DeliveryDashboard() {
           <Card className="mb-8 bg-white dark:bg-gray-800">
             <CardHeader>
               <CardTitle>Current Route: RT-DEL-001</CardTitle>
-              <CardDescription>7 deliveries • Lajpat Nagar to Greater Kailash</CardDescription>
+              <CardDescription>{deliveries.length} deliveries • Lajpat Nagar to Greater Kailash</CardDescription>
             </CardHeader>
             <CardContent>
               <div className="space-y-4">
@@ -140,7 +168,7 @@ export default function DeliveryDashboard() {
 
                 <div className="flex items-center justify-between text-sm">
                   <span>ETA: 45 mins</span>
-                  <span>Distance: 12.5 km</span>
+                  <span>Distance: {ecoStats?.total_distance_km ?? "–"} km</span>
                 </div>
               </div>
             </CardContent>
@@ -153,29 +181,7 @@ export default function DeliveryDashboard() {
               <CardDescription>Upcoming stops on your route</CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
-              {[
-                {
-                  orderId: "DEL002",
-                  customerName: "Vikram Gupta",
-                  address: "B-23, Greater Kailash I",
-                  status: "current",
-                  eta: "15 mins",
-                },
-                {
-                  orderId: "DEL003",
-                  customerName: "Meera Sharma",
-                  address: "C-67, Greater Kailash II",
-                  status: "pending",
-                  eta: "30 mins",
-                },
-                {
-                  orderId: "DEL004",
-                  customerName: "Rajesh Kumar",
-                  address: "D-12, Nehru Place",
-                  status: "pending",
-                  eta: "45 mins",
-                },
-              ].map((delivery, index) => (
+              {deliveries.map((delivery, index) => (
                 <div key={index} className="flex items-center justify-between p-3 border rounded-lg">
                   <div className="flex items-center">
                     <div
@@ -183,16 +189,18 @@ export default function DeliveryDashboard() {
                         delivery.status === "current" ? "bg-blue-100 text-blue-800" : "bg-gray-100 text-gray-800"
                       }`}
                     >
-                      {index + 2}
+                      {index + 1}
                     </div>
                     <div>
-                      <p className="font-medium">Order #{delivery.orderId}</p>
+                      <p className="font-medium">Order #{delivery.order_id}</p>
                       <p className="text-sm text-gray-600 dark:text-gray-400">{delivery.address}</p>
-                      <p className="text-xs text-gray-500">{delivery.customerName}</p>
+                      <p className="text-xs text-gray-500">{delivery.customer_name}</p>
                     </div>
                   </div>
                   <div className="text-right">
-                    <Badge variant={delivery.status === "current" ? "default" : "outline"}>{delivery.status}</Badge>
+                    <Badge variant={delivery.status === "current" ? "default" : "outline"}>
+                      {delivery.status}
+                    </Badge>
                     <p className="text-xs text-gray-500 mt-1">{delivery.eta}</p>
                   </div>
                 </div>
