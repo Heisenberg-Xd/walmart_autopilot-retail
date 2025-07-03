@@ -1,4 +1,0 @@
-order_id,customer_name,address,status,eta,distance_km,carbon_saved_g
-DEL002,Vikram Gupta,"B-23, Greater Kailash I",current,15 mins,3.2,50
-DEL003,Meera Sharma,"C-67, Greater Kailash II",pending,30 mins,4.5,65
-DEL004,Rajesh Kumar,"D-12, Nehru Place",pending,45 mins,4.8,60
