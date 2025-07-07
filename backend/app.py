@@ -150,6 +150,33 @@ def get_eco_analytics():
         })
     except Exception as e:
         return jsonify({"error": str(e)})
+    
+
+@app.route("/api/admin-dashboard", methods=["GET"])
+def admin_dashboard():
+    try:
+        # Load eco analytics
+        eco_df = pd.read_csv(CSV_PATHS["delivery_data"])
+        total_km = eco_df["distance_km"].sum() if "distance_km" in eco_df.columns else 0
+        carbon_saved = eco_df["carbon_saved_g"].sum() if "carbon_saved_g" in eco_df.columns else 0
+
+        ecoData = {
+            "total_distance_km": round(total_km, 2),
+            "carbon_saved_g": round(carbon_saved, 2)
+        }
+
+        # Load inventory data
+        inv_df = pd.read_csv(CSV_PATHS["inventory_data"]).fillna("")
+        inventoryData = inv_df.to_dict(orient="records")
+
+        return jsonify({
+            "ecoData": ecoData,
+            "inventoryData": inventoryData
+        })
+
+    except Exception as e:
+        return jsonify({"error": str(e)})
+
 
 @app.route("/api/delivery", methods=["GET"])
 def get_delivery_list():

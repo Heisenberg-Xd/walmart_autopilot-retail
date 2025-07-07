@@ -11,77 +11,54 @@ import { WalmartSidebar } from "@/components/walmart-sidebar"
 import { AIChatbot } from "@/components/ai-chatbot"
 import { Package, AlertTriangle, TrendingUp, Search, Filter, Download, Plus } from "lucide-react"
 
+interface InventoryItem {
+  product_id: string
+  product_name: string
+  quantity: number
+  store_id: string
+  last_updated: string
+}
+
+interface EnrichedInventoryItem extends InventoryItem {
+  percent: number
+  status: "healthy" | "low" | "critical"
+  reorderAlert: boolean
+  daysToDeplete: number
+}
+
 export default function InventoryManagementPage() {
   const [loading, setLoading] = useState(true)
   const [searchTerm, setSearchTerm] = useState("")
+  const [inventoryData, setInventoryData] = useState<EnrichedInventoryItem[]>([])
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoading(false)
-    }, 1000)
-    return () => clearTimeout(timer)
+    fetch("http://localhost:5000/api/inventory")
+      .then(res => res.json())
+      .then((data: InventoryItem[]) => {
+        const enriched = data.map(item => {
+          const maxStock = 500
+          const percent = Math.min(100, (item.quantity / maxStock) * 100)
+          const status: "healthy" | "low" | "critical" =
+            percent > 80 ? "healthy" : percent > 50 ? "low" : "critical"
+          const reorderAlert = item.quantity < 0.3 * maxStock
+          const daysToDeplete = Math.round(item.quantity / (item.quantity / 30)) || 0
+
+          return {
+            ...item,
+            percent,
+            status,
+            reorderAlert,
+            daysToDeplete,
+          }
+        })
+        setInventoryData(enriched)
+        setLoading(false)
+      })
+      .catch(err => {
+        console.error(err)
+        setLoading(false)
+      })
   }, [])
-
-  if (loading) {
-    return (
-      <div className="flex h-screen bg-gray-50 dark:bg-gray-900">
-        <WalmartSidebar userType="admin" />
-        <div className="flex-1 flex items-center justify-center">
-          <div className="text-center">
-            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
-            <p className="text-gray-600 dark:text-gray-300">Loading Inventory Management...</p>
-          </div>
-        </div>
-      </div>
-    )
-  }
-
-  const inventoryData = [
-    {
-      id: "INV001",
-      product: "Tata Salt 1kg",
-      category: "Grocery",
-      currentStock: 450,
-      minStock: 200,
-      maxStock: 1000,
-      location: "Mumbai Bandra",
-      status: "healthy",
-      lastUpdated: "2 mins ago",
-    },
-    {
-      id: "INV002",
-      product: "Amul Fresh Milk 1L",
-      category: "Dairy",
-      currentStock: 85,
-      minStock: 100,
-      maxStock: 500,
-      location: "Delhi CP",
-      status: "low",
-      lastUpdated: "5 mins ago",
-    },
-    {
-      id: "INV003",
-      product: "Cotton Kurta Set",
-      category: "Fashion",
-      currentStock: 25,
-      minStock: 50,
-      maxStock: 200,
-      location: "Bengaluru Koramangala",
-      status: "critical",
-      lastUpdated: "1 min ago",
-    },
-    {
-      id: "INV004",
-      product: "Samsung Galaxy Earbuds",
-      category: "Electronics",
-      currentStock: 150,
-      minStock: 50,
-      maxStock: 300,
-      location: "Chennai T.Nagar",
-      status: "healthy",
-      lastUpdated: "3 mins ago",
-    },
-  ]
 
   const getStatusColor = (status: string) => {
     switch (status) {
@@ -97,344 +74,179 @@ export default function InventoryManagementPage() {
   }
 
   const filteredInventory = inventoryData.filter(
-    (item) =>
-      item.product.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      item.category.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      item.location.toLowerCase().includes(searchTerm.toLowerCase()),
+    item =>
+      item.product_name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      item.store_id.toLowerCase().includes(searchTerm.toLowerCase())
   )
+
+  if (loading) {
+    return (
+      <div className="flex h-screen bg-gray-50 dark:bg-gray-900">
+        <WalmartSidebar userType="admin" />
+        <div className="flex-1 flex items-center justify-center">
+          <div className="text-center">
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
+            <p className="text-gray-600 dark:text-gray-300">Loading Inventory...</p>
+          </div>
+        </div>
+      </div>
+    )
+  }
 
   return (
     <div className="flex h-screen bg-gray-50 dark:bg-gray-900">
       <WalmartSidebar userType="admin" />
+      <div className="flex-1 overflow-auto p-6">
+        {/* Header */}
+        <div className="flex items-center justify-between mb-6">
+          <div>
+            <h1 className="text-3xl font-bold">Inventory Management</h1>
+            <p className="text-gray-500 text-sm">Live product tracking across all stores</p>
+          </div>
+          <div className="flex gap-2">
+            <Button variant="outline" size="sm"><Download className="h-4 w-4 mr-2" />Export</Button>
+            <Button size="sm" className="bg-blue-600 text-white hover:bg-blue-700"><Plus className="h-4 w-4 mr-2" />Add Item</Button>
+          </div>
+        </div>
 
-      <div className="flex-1 overflow-auto">
-        <div className="p-6">
-          {/* Header */}
-          <div className="mb-8">
-            <div className="flex items-center justify-between">
-              <div>
-                <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">Inventory Management</h1>
-                <div className="flex items-center space-x-4">
-                  <Badge className="bg-blue-600 text-white">
-                    <Package className="h-3 w-3 mr-1" />
-                    Real-time Tracking
-                  </Badge>
-                  <Badge variant="outline" className="text-green-600 border-green-600">
-                    <div className="w-2 h-2 bg-green-500 rounded-full mr-2"></div>
-                    Auto-sync Enabled
-                  </Badge>
+        {/* Search */}
+        <div className="flex mb-4 gap-4">
+          <div className="relative flex-1 max-w-md">
+            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
+            <Input
+              placeholder="Search products or stores..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              className="pl-10"
+            />
+          </div>
+          <Button variant="outline" size="sm"><Filter className="h-4 w-4 mr-2" />Filters</Button>
+        </div>
+
+        {/* Tabs */}
+        <Tabs defaultValue="overview" className="space-y-6">
+          <TabsList className="grid w-full grid-cols-4 bg-white dark:bg-gray-800">
+            <TabsTrigger value="overview">📊 Overview</TabsTrigger>
+            <TabsTrigger value="products">📦 Products</TabsTrigger>
+            <TabsTrigger value="locations">🏬 Locations</TabsTrigger>
+            <TabsTrigger value="analytics">📈 Analytics</TabsTrigger>
+          </TabsList>
+
+          {/* OVERVIEW */}
+          <TabsContent value="overview" className="space-y-6">
+            <Card>
+              <CardHeader>
+                <CardTitle>Stock Distribution</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-3">
+                <div className="flex justify-between text-sm">
+                  <span>Healthy</span>
+                  <span>{inventoryData.filter(i => i.status === "healthy").length}</span>
                 </div>
-              </div>
-              <div className="flex space-x-2">
-                <Button variant="outline" size="sm">
-                  <Download className="h-4 w-4 mr-2" />
-                  Export
-                </Button>
-                <Button size="sm" className="bg-blue-600 hover:bg-blue-700">
-                  <Plus className="h-4 w-4 mr-2" />
-                  Add Item
-                </Button>
-              </div>
-            </div>
-          </div>
-
-          {/* Key Metrics */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-            <Card className="bg-gradient-to-r from-blue-500 to-blue-600 text-white">
-              <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium">Total Items</CardTitle>
-                <Package className="h-4 w-4" />
-              </CardHeader>
-              <CardContent>
-                <div className="text-2xl font-bold">12,847</div>
-                <p className="text-xs text-blue-100">Across all locations</p>
+                <Progress value={inventoryData.filter(i => i.status === "healthy").length * 100 / inventoryData.length} />
+                <div className="flex justify-between text-sm">
+                  <span>Low</span>
+                  <span>{inventoryData.filter(i => i.status === "low").length}</span>
+                </div>
+                <Progress value={inventoryData.filter(i => i.status === "low").length * 100 / inventoryData.length} />
+                <div className="flex justify-between text-sm">
+                  <span>Critical</span>
+                  <span>{inventoryData.filter(i => i.status === "critical").length}</span>
+                </div>
+                <Progress value={inventoryData.filter(i => i.status === "critical").length * 100 / inventoryData.length} />
               </CardContent>
             </Card>
+          </TabsContent>
 
-            <Card className="bg-gradient-to-r from-green-500 to-green-600 text-white">
-              <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium">In Stock</CardTitle>
-                <TrendingUp className="h-4 w-4" />
+          {/* PRODUCTS */}
+          <TabsContent value="products" className="space-y-6">
+            <Card>
+              <CardHeader>
+                <CardTitle>Product Inventory</CardTitle>
+                <CardDescription>Live status of each product</CardDescription>
               </CardHeader>
               <CardContent>
-                <div className="text-2xl font-bold">11,234</div>
-                <p className="text-xs text-green-100">87.4% availability</p>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-gradient-to-r from-orange-500 to-red-500 text-white">
-              <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium">Low Stock</CardTitle>
-                <AlertTriangle className="h-4 w-4" />
-              </CardHeader>
-              <CardContent>
-                <div className="text-2xl font-bold">156</div>
-                <p className="text-xs text-orange-100">Need immediate attention</p>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-gradient-to-r from-purple-500 to-pink-500 text-white">
-              <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium">Value</CardTitle>
-                <Package className="h-4 w-4" />
-              </CardHeader>
-              <CardContent>
-                <div className="text-2xl font-bold">₹45.6L</div>
-                <p className="text-xs text-purple-100">Total inventory value</p>
-              </CardContent>
-            </Card>
-          </div>
-
-          {/* Search and Filters */}
-          <div className="mb-6">
-            <div className="flex items-center space-x-4">
-              <div className="relative flex-1 max-w-md">
-                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
-                <Input
-                  placeholder="Search products, categories, or locations..."
-                  value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.target.value)}
-                  className="pl-10"
-                />
-              </div>
-              <Button variant="outline" size="sm">
-                <Filter className="h-4 w-4 mr-2" />
-                Filters
-              </Button>
-            </div>
-          </div>
-
-          {/* Main Content */}
-          <Tabs defaultValue="overview" className="space-y-6">
-            <TabsList className="grid w-full grid-cols-4 bg-white dark:bg-gray-800">
-              <TabsTrigger value="overview">📊 Overview</TabsTrigger>
-              <TabsTrigger value="products">📦 Products</TabsTrigger>
-              <TabsTrigger value="locations">🏪 Locations</TabsTrigger>
-              <TabsTrigger value="analytics">📈 Analytics</TabsTrigger>
-            </TabsList>
-
-            <TabsContent value="overview" className="space-y-6">
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                <Card className="bg-white dark:bg-gray-900">
-                  <CardHeader>
-                    <CardTitle>Stock Status Distribution</CardTitle>
-                    <CardDescription>Current inventory health across all items</CardDescription>
-                  </CardHeader>
-                  <CardContent className="space-y-4">
-                    <div className="space-y-2">
-                      <div className="flex justify-between text-sm">
-                        <span>Healthy Stock (80-100%)</span>
-                        <span>8,456 items</span>
-                      </div>
-                      <Progress value={65.8} className="h-2" />
-                    </div>
-                    <div className="space-y-2">
-                      <div className="flex justify-between text-sm">
-                        <span>Moderate Stock (50-80%)</span>
-                        <span>2,778 items</span>
-                      </div>
-                      <Progress value={21.6} className="h-2" />
-                    </div>
-                    <div className="space-y-2">
-                      <div className="flex justify-between text-sm">
-                        <span>Low Stock (20-50%)</span>
-                        <span>1,457 items</span>
-                      </div>
-                      <Progress value={11.3} className="h-2" />
-                    </div>
-                    <div className="space-y-2">
-                      <div className="flex justify-between text-sm">
-                        <span>Critical Stock (0-20%)</span>
-                        <span>156 items</span>
-                      </div>
-                      <Progress value={1.2} className="h-2" />
-                    </div>
-                  </CardContent>
-                </Card>
-
-                <Card className="bg-white dark:bg-gray-900">
-                  <CardHeader>
-                    <CardTitle>Recent Stock Movements</CardTitle>
-                    <CardDescription>Latest inventory updates</CardDescription>
-                  </CardHeader>
-                  <CardContent className="space-y-4">
-                    {[
-                      { action: "Restocked", product: "Tata Salt 1kg", quantity: "+500", time: "2 mins ago" },
-                      { action: "Sold", product: "Samsung Earbuds", quantity: "-25", time: "5 mins ago" },
-                      { action: "Transfer", product: "Cotton Kurta", quantity: "+100", time: "10 mins ago" },
-                      { action: "Adjustment", product: "Amul Milk", quantity: "-15", time: "15 mins ago" },
-                    ].map((movement, index) => (
-                      <div key={index} className="flex items-center justify-between p-3 border rounded-lg">
-                        <div>
-                          <p className="font-medium">{movement.product}</p>
-                          <p className="text-sm text-gray-600 dark:text-gray-400">{movement.action}</p>
-                        </div>
-                        <div className="text-right">
-                          <Badge
-                            variant="outline"
-                            className={movement.quantity.startsWith("+") ? "text-green-600" : "text-red-600"}
-                          >
-                            {movement.quantity}
-                          </Badge>
-                          <p className="text-xs text-gray-500 mt-1">{movement.time}</p>
-                        </div>
-                      </div>
-                    ))}
-                  </CardContent>
-                </Card>
-              </div>
-            </TabsContent>
-
-            <TabsContent value="products" className="space-y-6">
-              <Card className="bg-white dark:bg-gray-900">
-                <CardHeader>
-                  <CardTitle>Product Inventory</CardTitle>
-                  <CardDescription>Detailed view of all products and their stock levels</CardDescription>
-                </CardHeader>
-                <CardContent>
+                {filteredInventory.length > 0 ? (
                   <div className="space-y-4">
                     {filteredInventory.map((item, index) => (
-                      <div
-                        key={index}
-                        className="flex items-center justify-between p-4 border rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
-                      >
+                      <div key={index} className="flex items-center justify-between p-4 border rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800">
                         <div className="flex-1">
-                          <div className="flex items-center space-x-3 mb-2">
-                            <h3 className="font-medium">{item.product}</h3>
-                            <Badge variant="outline" className="text-xs">
-                              {item.category}
-                            </Badge>
-                            <Badge variant="outline" className="text-xs">
-                              {item.location}
-                            </Badge>
+                          <div className="flex items-center space-x-2 mb-2">
+                            <h3 className="font-medium">{item.product_name}</h3>
+                            <Badge variant="outline" className="text-xs">{item.store_id}</Badge>
                             <Badge className={getStatusColor(item.status)}>{item.status}</Badge>
+                            {item.reorderAlert && <Badge className="bg-red-200 text-red-800 text-xs">Reorder</Badge>}
                           </div>
                           <div className="grid grid-cols-4 gap-4 text-sm text-gray-600 dark:text-gray-400">
-                            <div>
-                              <span className="font-medium">Current:</span> {item.currentStock}
-                            </div>
-                            <div>
-                              <span className="font-medium">Min:</span> {item.minStock}
-                            </div>
-                            <div>
-                              <span className="font-medium">Max:</span> {item.maxStock}
-                            </div>
-                            <div>
-                              <span className="font-medium">Updated:</span> {item.lastUpdated}
-                            </div>
-                          </div>
-                          <div className="mt-2">
-                            <Progress value={(item.currentStock / item.maxStock) * 100} className="h-2" />
+                            <div><strong>Qty:</strong> {item.quantity}</div>
+                            <div><strong>Depletion:</strong> {item.daysToDeplete} days</div>
+                            <div><strong>Last Updated:</strong> {item.last_updated}</div>
+                            <div><Progress value={item.percent} className="h-2" /></div>
                           </div>
                         </div>
                         <div className="ml-4 flex space-x-2">
-                          <Button variant="outline" size="sm">
-                            Edit
-                          </Button>
-                          <Button variant="outline" size="sm">
-                            Restock
-                          </Button>
+                          <Button variant="outline" size="sm">Edit</Button>
+                          <Button variant="outline" size="sm">Restock</Button>
                         </div>
                       </div>
                     ))}
                   </div>
-                </CardContent>
-              </Card>
-            </TabsContent>
+                ) : (
+                  <p className="text-sm text-gray-500">No products match your search.</p>
+                )}
+              </CardContent>
+            </Card>
+          </TabsContent>
 
-            <TabsContent value="locations" className="space-y-6">
-              <Card className="bg-white dark:bg-gray-900">
-                <CardHeader>
-                  <CardTitle>Location-wise Inventory</CardTitle>
-                  <CardDescription>Stock levels across different store locations</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                    {[
-                      { location: "Mumbai Bandra", items: 3245, value: "₹12.4L", status: "healthy" },
-                      { location: "Delhi CP", items: 2876, value: "₹9.8L", status: "low" },
-                      { location: "Bengaluru Koramangala", items: 2134, value: "₹8.2L", status: "critical" },
-                      { location: "Chennai T.Nagar", items: 2987, value: "₹11.1L", status: "healthy" },
-                      { location: "Pune Kothrud", items: 1605, value: "₹4.1L", status: "low" },
-                    ].map((store, index) => (
-                      <Card key={index} className="bg-gray-50 dark:bg-gray-800">
-                        <CardContent className="p-4">
-                          <div className="flex items-center justify-between mb-3">
-                            <span className="font-medium">{store.location}</span>
-                            <Badge className={getStatusColor(store.status)}>{store.status}</Badge>
-                          </div>
-                          <div className="space-y-2">
-                            <div className="flex justify-between text-sm">
-                              <span>Total Items</span>
-                              <span>{store.items.toLocaleString()}</span>
-                            </div>
-                            <div className="flex justify-between text-sm">
-                              <span>Inventory Value</span>
-                              <span className="font-medium">{store.value}</span>
-                            </div>
-                          </div>
-                        </CardContent>
-                      </Card>
-                    ))}
+          {/* LOCATIONS */}
+          <TabsContent value="locations">
+            <Card>
+              <CardHeader>
+                <CardTitle>Store Locations</CardTitle>
+                <CardDescription>Grouped inventory by store</CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-3">
+                {[...new Set(inventoryData.map(i => i.store_id))].map((store, idx) => {
+                  const items = inventoryData.filter(i => i.store_id === store)
+                  const totalQty = items.reduce((sum, i) => sum + i.quantity, 0)
+                  const avgHealth = Math.round(items.reduce((sum, i) => sum + i.percent, 0) / items.length)
+                  return (
+                    <div key={idx} className="p-4 border rounded-lg bg-gray-50 dark:bg-gray-800">
+                      <div className="flex justify-between items-center mb-2">
+                        <h3 className="font-semibold">{store}</h3>
+                        <Badge className="text-sm">Avg Health: {avgHealth}%</Badge>
+                      </div>
+                      <p className="text-sm text-gray-600 dark:text-gray-400">Total Quantity: {totalQty}</p>
+                      <Progress value={avgHealth} className="h-2 mt-1" />
+                    </div>
+                  )
+                })}
+              </CardContent>
+            </Card>
+          </TabsContent>
+
+          {/* ANALYTICS */}
+          <TabsContent value="analytics">
+            <Card>
+              <CardHeader>
+                <CardTitle>Analytics</CardTitle>
+              </CardHeader>
+              <CardContent className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="p-4 bg-blue-50 rounded-lg text-center dark:bg-blue-900/20">
+                  <div className="text-xl font-bold text-blue-700">18.4 days</div>
+                  <p className="text-sm text-gray-700 dark:text-gray-300">Average Days to Deplete</p>
+                </div>
+                <div className="p-4 bg-green-50 rounded-lg text-center dark:bg-green-900/20">
+                  <div className="text-xl font-bold text-green-700">
+                    {Math.round((inventoryData.filter(i => i.status === "healthy").length * 100) / inventoryData.length)}%
                   </div>
-                </CardContent>
-              </Card>
-            </TabsContent>
-
-            <TabsContent value="analytics" className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <Card className="bg-white dark:bg-gray-900">
-                  <CardHeader>
-                    <CardTitle>Inventory Turnover</CardTitle>
-                    <CardDescription>Product movement analytics</CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="space-y-4">
-                      <div className="text-center p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
-                        <div className="text-2xl font-bold text-blue-600">6.2x</div>
-                        <div className="text-sm text-gray-600 dark:text-gray-400">Average Turnover Rate</div>
-                      </div>
-                      <div className="text-center p-4 bg-green-50 dark:bg-green-900/20 rounded-lg">
-                        <div className="text-2xl font-bold text-green-600">18 days</div>
-                        <div className="text-sm text-gray-600 dark:text-gray-400">Average Days in Stock</div>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-
-                <Card className="bg-white dark:bg-gray-900">
-                  <CardHeader>
-                    <CardTitle>Top Performing Categories</CardTitle>
-                    <CardDescription>By inventory turnover rate</CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="space-y-4">
-                      {[
-                        { category: "Dairy & Fresh", turnover: "12.4x", trend: "+15%" },
-                        { category: "Personal Care", turnover: "8.7x", trend: "+8%" },
-                        { category: "Snacks & Beverages", turnover: "7.2x", trend: "+12%" },
-                        { category: "Home Essentials", turnover: "5.9x", trend: "+5%" },
-                      ].map((item, index) => (
-                        <div
-                          key={index}
-                          className="flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-800 rounded-lg"
-                        >
-                          <div>
-                            <p className="font-medium">{item.category}</p>
-                            <p className="text-sm text-gray-600 dark:text-gray-400">Turnover: {item.turnover}</p>
-                          </div>
-                          <Badge className="bg-green-100 text-green-800">{item.trend}</Badge>
-                        </div>
-                      ))}
-                    </div>
-                  </CardContent>
-                </Card>
-              </div>
-            </TabsContent>
-          </Tabs>
-        </div>
+                  <p className="text-sm text-gray-700 dark:text-gray-300">Products Healthy</p>
+                </div>
+              </CardContent>
+            </Card>
+          </TabsContent>
+        </Tabs>
       </div>
-
       <AIChatbot />
     </div>
   )
