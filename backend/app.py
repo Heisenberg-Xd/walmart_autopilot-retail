@@ -150,24 +150,36 @@ def get_eco_analytics():
         })
     except Exception as e:
         return jsonify({"error": str(e)})
-    
+
+   # Utility function to handle numpy types
+def convert_np_types(obj):
+    import numpy as np
+    if isinstance(obj, (np.int64, np.int32)):
+        return int(obj)
+    if isinstance(obj, (np.float64, np.float32)):
+        return float(obj)
+    return obj
+ 
 
 @app.route("/api/admin-dashboard", methods=["GET"])
 def admin_dashboard():
     try:
-        # Load eco analytics
+        # ✅ Load eco analytics
         eco_df = pd.read_csv(CSV_PATHS["delivery_data"])
         total_km = eco_df["distance_km"].sum() if "distance_km" in eco_df.columns else 0
         carbon_saved = eco_df["carbon_saved_g"].sum() if "carbon_saved_g" in eco_df.columns else 0
 
         ecoData = {
-            "total_distance_km": round(total_km, 2),
-            "carbon_saved_g": round(carbon_saved, 2)
+            "total_distance_km": round(float(total_km), 2),
+            "carbon_saved_g": round(float(carbon_saved), 2)
         }
 
-        # Load inventory data
+        # ✅ Load inventory data and convert all numpy types to native
         inv_df = pd.read_csv(CSV_PATHS["inventory_data"]).fillna("")
-        inventoryData = inv_df.to_dict(orient="records")
+        inventoryData = [
+            {k: convert_np_types(v) for k, v in row.items()}
+            for row in inv_df.to_dict(orient="records")
+        ]
 
         return jsonify({
             "ecoData": ecoData,

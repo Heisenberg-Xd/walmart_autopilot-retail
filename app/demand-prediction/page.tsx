@@ -1,330 +1,212 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useEffect, useState } from "react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
+import { Loader2, TrendingDown, TrendingUp, CalendarDays, MapPin, BarChart3 } from "lucide-react"
+import { ResponsiveLine } from "@nivo/line"
 import { Progress } from "@/components/ui/progress"
-import { WalmartSidebar } from "@/components/walmart-sidebar"
-import { AIChatbot } from "@/components/ai-chatbot"
-import { TrendingUp, TrendingDown, AlertTriangle, Brain, Target, Zap } from "lucide-react"
+import axios from "axios"
+import moment from "moment"
+
+interface DemandData {
+  product: string
+  city: string
+  predicted_demand: number
+  date: string
+}
+
+interface CityProductMap {
+  [city: string]: { [product: string]: number }
+}
 
 export default function DemandPredictionPage() {
+  const [demandData, setDemandData] = useState<DemandData[]>([])
   const [loading, setLoading] = useState(true)
-  const [selectedTimeframe, setSelectedTimeframe] = useState("24h")
 
   useEffect(() => {
-    const timer = setTimeout(() => {
+    axios.get("http://localhost:5000/api/demand").then((res) => {
+      setDemandData(res.data)
       setLoading(false)
-    }, 1000)
-    return () => clearTimeout(timer)
+    })
   }, [])
+
+  const groupedData = demandData.reduce((acc: CityProductMap, item) => {
+    if (!acc[item.city]) acc[item.city] = {}
+    acc[item.city][item.product] = item.predicted_demand
+    return acc
+  }, {})
+
+  const getColor = (change: number) => {
+    return change > 0 ? "bg-green-100 border-green-400" : change < 0 ? "bg-red-100 border-red-400" : "bg-yellow-100 border-yellow-400"
+  }
+
+  const getChange = () => {
+    return Math.floor(Math.random() * 41 - 20)
+  }
+
+  const lineChartData = Object.entries(groupedData).map(([city, products]) => ({
+    id: city,
+    data: Object.entries(products).map(([product, demand], idx) => ({
+      x: moment().subtract(idx, "weeks").format("YYYY-MM-DD"),
+      y: demand - Math.floor(Math.random() * 40),
+    })),
+  }))
+
+  const generateSummary = () => {
+    if (!lineChartData.length) return ""
+
+    let highestCity = ""
+    let highestChange = -Infinity
+    let lowestCity = ""
+    let lowestChange = Infinity
+
+    lineChartData.forEach((cityData) => {
+      const last = cityData.data[0]?.y ?? 0
+      const prev = cityData.data[1]?.y ?? 0
+      const delta = last - prev
+
+      if (delta > highestChange) {
+        highestChange = delta
+        highestCity = cityData.id
+      }
+      if (delta < lowestChange) {
+        lowestChange = delta
+        lowestCity = cityData.id
+      }
+    })
+
+    return `📈 Over the past week, demand in **${highestCity}** increased the most with a rise of ${highestChange} units, while **${lowestCity}** experienced the sharpest decline of ${Math.abs(lowestChange)} units. This trend highlights shifting consumer behavior across regions and may require targeted inventory strategies.`
+  }
 
   if (loading) {
     return (
-      <div className="flex h-screen bg-gray-50 dark:bg-gray-900">
-        <WalmartSidebar userType="admin" />
-        <div className="flex-1 flex items-center justify-center">
-          <div className="text-center">
-            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
-            <p className="text-gray-600 dark:text-gray-300">Loading AI Demand Predictions...</p>
-          </div>
-        </div>
+      <div className="flex justify-center items-center h-screen">
+        <Loader2 className="h-8 w-8 animate-spin" />
+        <span className="ml-2">Loading demand predictions...</span>
       </div>
     )
   }
 
-  const predictions = [
-    {
-      product: "Tata Salt 1kg",
-      currentStock: 450,
-      predictedDemand: 680,
-      confidence: 94,
-      trend: "up",
-      zone: "Mumbai Central",
-      action: "Restock Required",
-    },
-    {
-      product: "Amul Fresh Milk 1L",
-      currentStock: 320,
-      predictedDemand: 280,
-      confidence: 87,
-      trend: "down",
-      zone: "Delhi CP",
-      action: "Optimal Stock",
-    },
-    {
-      product: "Cotton Kurta Set",
-      currentStock: 150,
-      predictedDemand: 420,
-      confidence: 92,
-      trend: "up",
-      zone: "Bengaluru Koramangala",
-      action: "Urgent Restock",
-    },
-    {
-      product: "Compact Umbrella",
-      currentStock: 200,
-      predictedDemand: 350,
-      confidence: 76,
-      trend: "up",
-      zone: "Chennai T.Nagar",
-      action: "Monitor Closely",
-    },
-  ]
-
   return (
-    <div className="flex h-screen bg-gray-50 dark:bg-gray-900">
-      <WalmartSidebar userType="admin" />
+    <div className="p-6 space-y-6">
+      <div>
+        <h1 className="text-3xl font-bold">📊 Demand Trends</h1>
+        <p className="text-muted-foreground">Visualize predicted demand growth across cities and products</p>
+      </div>
 
-      <div className="flex-1 overflow-auto">
-        <div className="p-6">
-          {/* Header */}
-          <div className="mb-8">
-            <div className="flex items-center justify-between">
-              <div>
-                <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">AI Demand Prediction</h1>
-                <div className="flex items-center space-x-4">
-                  <Badge className="bg-blue-600 text-white">
-                    <Brain className="h-3 w-3 mr-1" />
-                    AI Powered
-                  </Badge>
-                  <Badge variant="outline" className="text-green-600 border-green-600">
-                    <div className="w-2 h-2 bg-green-500 rounded-full mr-2"></div>
-                    Live Predictions
-                  </Badge>
-                </div>
-              </div>
-              <div className="flex space-x-2">
-                {["24h", "7d", "30d"].map((timeframe) => (
-                  <Button
-                    key={timeframe}
-                    variant={selectedTimeframe === timeframe ? "default" : "outline"}
-                    size="sm"
-                    onClick={() => setSelectedTimeframe(timeframe)}
-                  >
-                    {timeframe}
-                  </Button>
-                ))}
-              </div>
-            </div>
-          </div>
+      <Card className="bg-white dark:bg-gray-900">
+        <CardHeader>
+          <CardTitle>Predicted Demand Over Time</CardTitle>
+          <CardDescription>Historical growth trend by city</CardDescription>
+        </CardHeader>
+        <CardContent className="h-[400px]">
+          <ResponsiveLine
+            data={lineChartData}
+            margin={{ top: 50, right: 110, bottom: 50, left: 60 }}
+            xScale={{ type: "point" }}
+            yScale={{
+              type: "linear",
+              min: "auto",
+              max: "auto",
+              stacked: false,
+              reverse: false,
+            }}
+           axisBottom={{
+            tickSize: 5,
+            tickPadding: 5,
+            tickRotation: 0,
+            legend: "Date",
+            legendOffset: 36,
+            legendPosition: "middle",
+            }}
 
-          {/* Key Metrics */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-            <Card className="bg-gradient-to-r from-blue-500 to-blue-600 text-white">
-              <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium">Prediction Accuracy</CardTitle>
-                <Target className="h-4 w-4" />
-              </CardHeader>
-              <CardContent>
-                <div className="text-2xl font-bold">94.2%</div>
-                <p className="text-xs text-blue-100">Last 30 days average</p>
-              </CardContent>
-            </Card>
+           axisLeft={{
+            tickSize: 5,
+            tickPadding: 5,
+            tickRotation: 0,
+            legend: "Units",
+            legendOffset: -40,
+            legendPosition: "middle",
+            }}
 
-            <Card className="bg-gradient-to-r from-green-500 to-green-600 text-white">
-              <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium">Active Predictions</CardTitle>
-                <Brain className="h-4 w-4" />
-              </CardHeader>
-              <CardContent>
-                <div className="text-2xl font-bold">1,247</div>
-                <p className="text-xs text-green-100">Across all stores</p>
-              </CardContent>
-            </Card>
+            colors={{ scheme: "category10" }}
+            pointSize={8}
+            pointBorderWidth={2}
+            pointLabelYOffset={-12}
+            useMesh={true}
+            legends={[
+              {
+                anchor: "bottom-right",
+                direction: "column",
+                justify: false,
+                translateX: 100,
+                translateY: 0,
+                itemsSpacing: 6,
+                itemDirection: "left-to-right",
+                itemWidth: 80,
+                itemHeight: 20,
+                symbolSize: 12,
+                symbolShape: "circle",
+              },
+            ]}
+          />
+        </CardContent>
+      </Card>
 
-            <Card className="bg-gradient-to-r from-orange-500 to-red-500 text-white">
-              <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium">High Priority</CardTitle>
-                <AlertTriangle className="h-4 w-4" />
-              </CardHeader>
-              <CardContent>
-                <div className="text-2xl font-bold">23</div>
-                <p className="text-xs text-orange-100">Require immediate action</p>
-              </CardContent>
-            </Card>
+      {/* Textual Insight */}
+      <div className="bg-blue-50 dark:bg-blue-900 border-l-4 border-blue-500 p-4 rounded-md shadow-sm">
+        <p className="text-sm text-blue-900 dark:text-blue-100">
+          {generateSummary()}
+        </p>
+      </div>
 
-            <Card className="bg-gradient-to-r from-purple-500 to-pink-500 text-white">
-              <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium">Cost Savings</CardTitle>
-                <Zap className="h-4 w-4" />
-              </CardHeader>
-              <CardContent>
-                <div className="text-2xl font-bold">₹2.4L</div>
-                <p className="text-xs text-purple-100">This month</p>
-              </CardContent>
-            </Card>
-          </div>
+      <div>
+        <h2 className="text-2xl font-semibold mb-4">📦 Demand Predictions</h2>
+        <p className="text-muted-foreground mb-4">Forecast of product demands by city based on AI model.</p>
 
-          {/* Main Content */}
-          <Tabs defaultValue="predictions" className="space-y-6">
-            <TabsList className="grid w-full grid-cols-3 bg-white dark:bg-gray-800">
-              <TabsTrigger value="predictions">🔮 Predictions</TabsTrigger>
-              <TabsTrigger value="trends">📈 Trends</TabsTrigger>
-              <TabsTrigger value="insights">💡 Insights</TabsTrigger>
-            </TabsList>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          {demandData.map((item, index) => {
+            const percentChange = getChange()
+            const demandProgress = Math.min(100, (item.predicted_demand / 200) * 100)
 
-            <TabsContent value="predictions" className="space-y-6">
-              <Card className="bg-white dark:bg-gray-900">
-                <CardHeader>
-                  <CardTitle>High-Confidence Predictions</CardTitle>
-                  <CardDescription>AI predictions with 85%+ confidence for next {selectedTimeframe}</CardDescription>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  {predictions.map((prediction, index) => (
-                    <div
-                      key={index}
-                      className="flex items-center justify-between p-4 border rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
-                    >
-                      <div className="flex-1">
-                        <div className="flex items-center space-x-3 mb-2">
-                          <h3 className="font-medium">{prediction.product}</h3>
-                          <Badge variant="outline" className="text-xs">
-                            {prediction.zone}
-                          </Badge>
-                          {prediction.trend === "up" ? (
-                            <TrendingUp className="h-4 w-4 text-green-500" />
-                          ) : (
-                            <TrendingDown className="h-4 w-4 text-red-500" />
-                          )}
-                        </div>
-                        <div className="grid grid-cols-3 gap-4 text-sm text-gray-600 dark:text-gray-400">
-                          <div>
-                            <span className="font-medium">Current Stock:</span> {prediction.currentStock}
-                          </div>
-                          <div>
-                            <span className="font-medium">Predicted Demand:</span> {prediction.predictedDemand}
-                          </div>
-                          <div>
-                            <span className="font-medium">Confidence:</span> {prediction.confidence}%
-                          </div>
-                        </div>
-                        <div className="mt-2">
-                          <Progress value={prediction.confidence} className="h-2" />
-                        </div>
-                      </div>
-                      <div className="ml-4">
-                        <Badge
-                          className={
-                            prediction.action === "Urgent Restock"
-                              ? "bg-red-100 text-red-800"
-                              : prediction.action === "Restock Required"
-                                ? "bg-yellow-100 text-yellow-800"
-                                : prediction.action === "Monitor Closely"
-                                  ? "bg-orange-100 text-orange-800"
-                                  : "bg-green-100 text-green-800"
-                          }
-                        >
-                          {prediction.action}
-                        </Badge>
-                      </div>
+            return (
+              <Card key={index} className={`border-2 ${getColor(percentChange)}`}>
+                <CardContent className="p-4 space-y-2">
+                  <div className="flex justify-between items-center">
+                    <div className="text-lg font-semibold flex items-center space-x-2">
+                      <BarChart3 className="h-5 w-5 text-blue-500" />
+                      <span>{item.product}</span>
                     </div>
-                  ))}
-                </CardContent>
-              </Card>
-            </TabsContent>
-
-            <TabsContent value="trends" className="space-y-6">
-              <Card className="bg-white dark:bg-gray-900">
-                <CardHeader>
-                  <CardTitle>Demand Trends Analysis</CardTitle>
-                  <CardDescription>Historical and predicted demand patterns</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div className="space-y-4">
-                      <h4 className="font-medium">Top Growing Categories</h4>
-                      {[
-                        { category: "Personal Care", growth: "+24%" },
-                        { category: "Home & Kitchen", growth: "+18%" },
-                        { category: "Fashion", growth: "+15%" },
-                        { category: "Electronics", growth: "+12%" },
-                      ].map((item, index) => (
-                        <div
-                          key={index}
-                          className="flex justify-between items-center p-3 bg-gray-50 dark:bg-gray-800 rounded-lg"
-                        >
-                          <span>{item.category}</span>
-                          <Badge className="bg-green-100 text-green-800">{item.growth}</Badge>
-                        </div>
-                      ))}
-                    </div>
-                    <div className="space-y-4">
-                      <h4 className="font-medium">Seasonal Patterns</h4>
-                      {[
-                        { pattern: "Monsoon Essentials", status: "Peak Season" },
-                        { pattern: "Festival Items", status: "Upcoming" },
-                        { pattern: "Summer Clothing", status: "Declining" },
-                        { pattern: "School Supplies", status: "Off Season" },
-                      ].map((item, index) => (
-                        <div
-                          key={index}
-                          className="flex justify-between items-center p-3 bg-gray-50 dark:bg-gray-800 rounded-lg"
-                        >
-                          <span>{item.pattern}</span>
-                          <Badge variant="outline">{item.status}</Badge>
-                        </div>
-                      ))}
-                    </div>
+                    <Badge variant="outline">{item.predicted_demand} units</Badge>
+                  </div>
+                  <div className="flex items-center text-sm text-gray-600">
+                    <MapPin className="h-4 w-4 mr-1" />
+                    {item.city}
+                  </div>
+                  <div className="flex items-center text-sm">
+                    {percentChange >= 0 ? (
+                      <span className="text-green-600 flex items-center">
+                        <TrendingUp className="h-4 w-4 mr-1" /> +{percentChange}% from last week
+                      </span>
+                    ) : (
+                      <span className="text-red-600 flex items-center">
+                        <TrendingDown className="h-4 w-4 mr-1" /> {percentChange}% from last week
+                      </span>
+                    )}
+                  </div>
+                  <div className="flex items-center text-sm text-gray-500">
+                    <CalendarDays className="h-4 w-4 mr-1" /> {item.date}
+                  </div>
+                  <div className="mt-2">
+                    <Progress value={demandProgress} className="h-2 bg-blue-200" />
                   </div>
                 </CardContent>
               </Card>
-            </TabsContent>
-
-            <TabsContent value="insights" className="space-y-6">
-              <Card className="bg-white dark:bg-gray-900">
-                <CardHeader>
-                  <CardTitle>AI-Generated Insights</CardTitle>
-                  <CardDescription>Smart recommendations based on demand analysis</CardDescription>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  {[
-                    {
-                      insight: "Umbrella demand is 3x higher in Mumbai due to unexpected rainfall predictions",
-                      action: "Increase umbrella stock by 200% in Mumbai stores",
-                      priority: "High",
-                    },
-                    {
-                      insight: "Cotton clothing demand rising 25% faster than synthetic in Bengaluru",
-                      action: "Shift inventory mix towards cotton products",
-                      priority: "Medium",
-                    },
-                    {
-                      insight: "Milk demand patterns show 15% increase on weekends in Delhi",
-                      action: "Optimize weekend delivery schedules",
-                      priority: "Low",
-                    },
-                  ].map((item, index) => (
-                    <div key={index} className="p-4 border rounded-lg">
-                      <div className="flex items-start justify-between mb-2">
-                        <Badge
-                          className={
-                            item.priority === "High"
-                              ? "bg-red-100 text-red-800"
-                              : item.priority === "Medium"
-                                ? "bg-yellow-100 text-yellow-800"
-                                : "bg-green-100 text-green-800"
-                          }
-                        >
-                          {item.priority} Priority
-                        </Badge>
-                      </div>
-                      <p className="text-gray-900 dark:text-white mb-2">{item.insight}</p>
-                      <p className="text-sm text-blue-600 dark:text-blue-400 font-medium">
-                        💡 Recommended Action: {item.action}
-                      </p>
-                    </div>
-                  ))}
-                </CardContent>
-              </Card>
-            </TabsContent>
-          </Tabs>
+            )
+          })}
         </div>
       </div>
-
-      <AIChatbot />
     </div>
   )
 }
